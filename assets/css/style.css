@@ -1,0 +1,636 @@
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    background-color: rgb(233, 233, 233);
+}
+
+.nav-item {
+    padding-left: 50px;
+    font-family: 'Abel', sans-serif;
+}
+
+#logo {
+    width: 200px;
+    padding: 10px;
+}
+
+.jumbotron {
+    background-image: url(../img/Sewing.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: relative;
+    margin-bottom: 0;
+}
+
+.overlay {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.jumbotron-content {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-left: 70px;
+}
+
+.jumbotron-text h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: #FFAD32;
+    font-size: 80px;
+    text-align: left;
+}
+
+.jumbotron-text p {
+    color: white;
+    font-family: 'Abel', sans-serif;
+}
+
+.jumbotron-button {
+    display: inline-flex;
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+.button-penjahit {
+    margin-right: 30px;
+}
+
+.button-penjahit a,
+.button-all a {
+    font-family: 'Abel', sans-serif;
+    padding: 11px;
+    background-color: #FFAD32;
+    color: #585c63;
+    transition: 0.1s ease-in;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.button-all a:hover {
+    text-decoration: none;
+    background: #fad297;
+    transition: 0.5s ease-in;
+    color: #585c63;
+}
+
+.button-penjahit a:hover {
+    text-decoration: none;
+    color: #FFAD32;
+    background: none;
+    border-style: solid;
+    border-width: 0.1;
+    border-color: #FFAD32;
+    transition: 0.5s ease-in;
+}
+
+.button-pelanggan a {
+    font-family: 'Abel', sans-serif;
+    padding: 10px;
+    border-style: solid;
+    border-width: 0.1;
+    border-color: #FFAD32;
+    color: #FFAD32;
+    transition: 0.2s ease-in;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+}
+
+.button-pelanggan a:hover {
+    text-decoration: none;
+    color: #585c63;
+    background: #FFAD32;
+    border-style: none;
+    transition: 0.5s ease-in;
+}
+
+.penjahit-corner {
+    margin: auto;
+    padding: 40px;
+}
+
+.penjahit-corner h1 {
+    font-family: 'Abel', sans-serif;
+    color: #585c63;
+    font-size: 20pt;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.penjahit-item {
+    margin: auto;
+    width: 240px;
+    height: 260px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.penjahit-item img {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 240px;
+    height: 260px;
+    object-fit: cover;
+    box-shadow: 1px 1px 7px 1px #e2e2e2;
+}
+
+.penjahit-gambar::after {
+    content: '';
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    height: 260px;
+    z-index: 0;
+    -webkit-box-shadow: -1px -84px 78px 4px rgba(0, 0, 0, 0.5) inset;
+    -moz-shadow: -1px -84px 78px 4px rgba(0, 0, 0, 0.5) inset;
+    box-shadow: -1px -84px 78px 4px rgba(0, 0, 0, 0.5) inset;
+}
+
+.penjahit-desc {
+    position: absolute;
+    font-family: 'Abel', sans-serif;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-top: 160px;
+}
+
+.penjahit-name {
+    color: white;
+    font-size: 14pt;
+}
+
+.penjahit-category {
+    color: rgb(255, 173, 50);
+    font-size: 11pt;
+    margin-top: -7px;
+}
+
+.next {
+    position: absolute;
+    font-family: 'Abel', sans-serif;
+    display: flex;
+    border-top: rgb(160, 160, 160);
+    border-top-style: solid;
+    border-top-width: 0.1;
+    padding: 5px;
+    margin-top: 220px;
+    width: 100%;
+}
+
+.next a {
+    margin-left: 40%;
+    font-size: 11pt;
+    color: white;
+}
+
+.next a:hover {
+    text-decoration: none;
+    color: #FFAD32;
+}
+
+.overlay-penjahit {
+    position: absolute;
+    width: 270px;
+    height: 0px;
+    padding-top: 0px;
+    background-color: rgb(255, 173, 50);
+    overflow: hidden;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+    margin-top: 250px;
+}
+
+.overlay-penjahit a {
+    margin: auto;
+    color: white;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: 'Abel', sans-serif;
+    border-style: solid;
+    border-color: white;
+    border-width: 0.4;
+    padding: 3px 10px;
+}
+
+.penjahit-item:hover .overlay-penjahit {
+    cursor: pointer;
+    height: 90px;
+    margin-top: 190px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.button-all {
+    margin: auto;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.info {
+    background-image: url(../img/close.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 320px;
+    position: relative;
+    margin-bottom: 20%;
+}
+
+.overlay-info {
+    width: auto;
+    height: 320px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.info-content {
+    display: inline-flex;
+}
+
+.info-gambar {
+    background-color: rgb(255, 173, 50);
+    width: 290px;
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+}
+
+.info-gambar img {
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+}
+
+.info-teks {
+    color: rgb(255, 173, 50);
+    font-family: 'Abel', sans-serif;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.info-link {
+    color: white;
+    margin-top: 10%;
+}
+
+.info-link a {
+    color: rgb(255, 173, 50);
+}
+
+.info-link a:hover {
+    text-decoration: none;
+    color: rgb(252, 208, 142);
+}
+
+.info-plus {
+    margin-left: 50px;
+    display: inline-flex;
+    margin-top: 50px;
+}
+
+.plus-content {
+    width: 200px;
+    background-color: white;
+    margin: 10px;
+    padding: 30px;
+    -webkit-box-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 6px -2px rgba(0, 0, 0, 0.5);
+    color: rgb(160, 160, 160);
+}
+
+.plus-content i {
+    font-size: 30pt;
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 10px;
+    color: rgb(255, 173, 50);
+}
+
+.footer-content {
+    background-color: rgb(255, 173, 50);
+    height: auto;
+    padding: 30px;
+    font-family: 'abel', sans-serif;
+    margin-top: -35px;
+}
+
+.footer-content h5 {
+    margin-bottom: 10px;
+}
+
+.footer-content .contact ul li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.contact ul li i {
+    margin-right: 20px;
+}
+
+.contact ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.feedback form {
+    width: 300px;
+}
+
+.feedback form button {
+    background-color: white;
+    width: 100px;
+}
+
+.credit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.daftar-pelanggan,
+.daftar-penjahit,
+.masuk-pelanggan,
+.masuk-penjahit {
+    color: ivory;
+}
+
+.daftar-pelanggan input,
+.daftar-penjahit input,
+.masuk-pelanggan input,
+.masuk-penjahit input {
+    border-radius: 20px;
+    width: 300px;
+}
+
+.info-text {
+    color: ivory;
+}
+
+.info-btn {
+    margin: auto;
+}
+
+.container-penjahit {
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s linear, visbility 600ms;
+    margin-top: -350px;
+    height: 350px;
+}
+
+.container-forms {
+    position: relative;
+    font-family: 'Abel', sans-serif;
+    padding-bottom: 350px;
+    padding-top: 40px;
+}
+
+.container-pelanggan {
+    height: 350px;
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear, visbility 600ms;
+}
+
+.info-btn button {
+    font-size: 12pt;
+    font-family: 'Abel', sans-serif;
+    border-style: solid;
+    background-color: #FFAD32;
+    border: none;
+    color: #585c63;
+    transition: 0.2s ease-in;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.info-btn button:hover {
+    text-decoration: none;
+    color: #FFAD32;
+    background: none;
+    border-style: solid;
+    border-width: 0.1;
+    border-color: #FFAD32;
+    transition: 0.5s ease-in;
+}
+
+.info-item {
+    font-family: 'Abel', sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    padding-bottom: 40px;
+}
+
+.container-masuk-penjahit {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: -230px;
+    transition: opacity 1s linear, visbility 600ms;
+    display: flex;
+    align-items: space-around;
+    flex-direction: column;
+}
+
+.container-masuk-forms {
+    padding-bottom: 300px;
+    font-family: 'Abel', sans-serif;
+}
+
+.container-masuk-pelanggan {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear, visbility 600ms;
+    display: flex;
+    align-items: space-around;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.form-item,
+.cari {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn-all {
+    font-family: 'Abel', sans-serif;
+    border-style: solid;
+    background-color: #FFAD32;
+    border: none;
+    margin: auto;
+    height: 30px;
+    width: 300px;
+    color: #585c63;
+    transition: 0.2s ease-in;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.btn-all:hover {
+    text-decoration: none;
+    color: #FFAD32;
+    background: none;
+    border-style: solid;
+    border-width: 0.1;
+    border-color: #FFAD32;
+    transition: 0.5s ease-in;
+}
+
+.nav-pelanggan {
+    background-color: #f1aa3e;
+}
+
+.link-nav {
+    color: rgba(80, 80, 80, 0.733);
+    margin: 15px;
+}
+
+.link-nav:hover {
+    text-decoration: none;
+    color: rgb(83, 78, 78);
+}
+
+.aktif {
+    color: rgb(54, 54, 54);
+}
+
+.cari {
+    display: inline-flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.cari input {
+    font-family: 'abel', sans-serif;
+    width: 100%;
+}
+
+.cari button {
+    background-color: #FFAD32;
+    border: none;
+    height: 34px;
+    width: 50px;
+    margin-top: -19px;
+    margin-left: -7px;
+}
+
+.show-penjahit {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.filter {
+    font-family: 'abel', sans-serif;
+    padding: 13px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+.filter hr {
+    width: 80%;
+    margin-left: 0;
+}
+
+.profil-penjahit {
+    padding: 50px;
+    font-family: 'Abel', sans-serif;
+}
+
+.katalog {
+    margin-bottom: 50px;
+}
+
+.katalog-list img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: #ffffff;
+    width: 250px;
+    height: 290px;
+    object-fit: contain;
+    position: relative;
+    z-index: -1;
+}
+
+.katalog-list {
+    font-family: 'Abel', sans-serif;
+    width: 250px;
+    height: 320px;
+    -webkit-box-shadow: 3px 2px 11px 0px rgba(197, 197, 197, 0.5);
+    -moz-shadow: 3px 2px 11px 0px rgba(197, 197, 197, 0.5);
+    box-shadow: 3px 2px 11px 0px rgba(197, 197, 197, 0.5);
+}
+
+.nama-katalog {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: -10px;
+    background-color: #FFAD32;
+    height: 40px;
+    width: inherit;
+    -webkit-box-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+    -moz-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+    box-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nama-katalog p {
+    margin-top: 5px;
+    margin-left: 6px;
+}
+
+.nama-katalog a {
+    color: #000000;
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    margin-left: 20px;
+}
+
+.nama-katalog a:hover {
+    color: #e2e2e2;
+}
+
+.overlay-katalog {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+}
