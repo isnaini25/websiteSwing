@@ -9,11 +9,11 @@
                 <button class="btn-find" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
             </form>
 
-            <h1>Temukan penjahit yang cocok untuk Anda</h1>
+            <h1>Temukan penjahit yang cocok untuk Anda </h1>
             <div class="row show-penjahit">
                 <div class="col-lg-2">
                     <div class="filter">
-                        <h6>Filer <i class="fa fa-filter" aria-hidden="true"></i></h6>
+                        <h6>Filter <i class="fa fa-filter" aria-hidden="true"></i></h6>
                         <p>Kategori Penjahit</p>
                         <hr>
                         <?php

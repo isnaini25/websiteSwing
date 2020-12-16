@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
 
+    <link href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/flaticon.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -76,7 +78,7 @@
 
                 <div class="container">
                     <div class="container-forms">
-                        <div class="container-pelanggan" id="pelanggan">
+                        <div class="container-pelanggan" id="pelanggan"> 
                             <div class="row">
 
                                 <div class="form-item daftar-pelanggan col-lg-6 m-auto">
@@ -84,7 +86,7 @@
                                     <form action="aksiDaftarPelanggan.php" method="post" enctype="multipart/form-data">
 
                                         <div class="list-group list-group-horizontal mb-3" id="list-tab" role="tablist">
-                                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Detail Akun</a>
+                                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Detail Akun <i class="ti-angle-right"></i></a>
                                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Data Diri</a>
 
                                         </div>
@@ -175,9 +177,9 @@
                             </div>
                         </div>
 
-                        <div class="container-penjahit" id="penjahit">
+                        <div class="container-penjahit" id="penjahit" >
                             <div class="row">
-                                <div class="info-item col-lg-6 m-auto">
+                                <div class="info-item col-lg-6">
                                     <div class="info-text">
                                         Anda seorang PELANGGAN?
                                     </div>
@@ -186,11 +188,11 @@
                                     </div>
                                 </div>
                                 <div class="form-item col-lg-6 m-auto daftar-penjahit">
-                                    <h5>Daftar sebagi penjahit</h5>
+                                    <h5>Daftar sebagi penjahit (khusus Kabupaten Bantul)</h5>
 
                                     <form action="aksiDaftarPenjahit.php" method="post" enctype="multipart/form-data">
                                         <div class="list-group list-group-horizontal mb-3" id="list-tab" role="tablist">
-                                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home-penjahit" role="tab" aria-controls="home">Detail Akun</a>
+                                            <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home-penjahit" role="tab" aria-controls="home">Detail Akun <i class="ti-angle-right"></i></a>
                                             <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile-penjahit" role="tab" aria-controls="profile">Data Penjahit</a>
                                             
 
@@ -222,13 +224,13 @@
                                             </div>
                                             <div class="tab-pane fade" id="list-profile-penjahit" role="tabpanel" aria-labelledby="list-profile-list">
                                             <div class="form-group">
-                                                    <label for="exampleInputEmail1">Provinsi</label>
-                                                    <select class="form-control" id="provinsi" name="provinsi">
+                                                    <label for="exampleInputEmail1">Kecamatan</label>
+                                                    <select class="form-control" id="kecamatan" name="kecamatan">
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="exampleInputEmail1">Kota/Kabupaten</label>
-                                                    <select class="form-control" id="kota" name="kota">
+                                                    <label for="exampleInputEmail1">Kelurahan</label>
+                                                    <select class="form-control" id="kelurahan" name="kelurahan">
                                                     </select>
                                                 </div>
                                                 
@@ -295,6 +297,32 @@
      
       $.ajax({
           type:'post',
+          url:'admin/module/data/dataKecamatan.php',
+          success:function(hasil_kecamatan)
+          {
+              
+              $("select[name=kecamatan]").html(hasil_kecamatan);
+             
+          }
+      });
+
+
+      $("select[name=kecamatan]").on("change", function(){
+          var id_kecamatan = $("option:selected", this).attr("id_kecamatan");
+          $.ajax({
+              type:'post',
+              url: 'admin/module/data/dataKelurahan.php',
+              data:'id_kecamatan='+(id_kecamatan*10),
+              success:function(hasil_kelurahan){
+                $("select[name=kelurahan]").html(hasil_kelurahan);
+                console.log(id_kecamatan);
+              }
+          })
+      })
+  })
+
+  $.ajax({
+          type:'post',
           url:'admin/module/data/dataProvinsi.php',
           success:function(hasil_provinsi)
           {
@@ -313,10 +341,11 @@
               data:'id_provinsi='+id_provinsi,
               success:function(hasil_kota){
                 $("select[name=kota]").html(hasil_kota);
+            
               }
           })
       })
-  })
+  
 
         $(document).ready(function(){
             $("#usernamePL").change(function(){  

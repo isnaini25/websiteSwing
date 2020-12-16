@@ -1,3 +1,11 @@
+
+<?php
+session_start();
+if(empty($_SESSION['id_pelanggan'])){
+    echo "<script>alert ('Anda belum login'); window.location = 'masuk.php';
+        </script>";
+}
+?>
 <html lang="en">
 
 <head>
@@ -15,6 +23,7 @@
 
     <link rel="stylesheet" href="assets/css/flaticon.css">
     
+    <link href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css" rel="stylesheet">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css" rel="stylesheet"/>
 
@@ -26,11 +35,16 @@
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:wght@600&family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <title>SWING</title>
 
 
 </head>
+<!-- <script>    
+    if(typeof window.history.pushState == 'function') {
+        window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF'];?>');
+    }
+</script> -->
 <style>
     body {
         background-color: rgb(233, 233, 233);
@@ -38,6 +52,7 @@
         margin: 0;
     }
 </style>
+
 
 <body>
     <header>
@@ -51,16 +66,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <div class="mr-auto"></div>
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
-                            <a class="link-nav aktif" href=""><i class="fa fa-home" aria-hidden="true"></i> Beranda</a>
+                        <li class="nav-item active mb-2">
+                            <a class="link-nav aktif" href="home.php"><i class="fa fa-home" aria-hidden="true"></i> Beranda</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-2">
                             <a class="link-nav" href="#"><i class="fa fa-bell" aria-hidden="true"></i> Notifikasi</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-2">
                             <a class="link-nav" href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i> Pesanan</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mb-2">
                             <a class="link-nav" href=""><i class="fa fa-user" aria-hidden="true"></i> Akun</a>
                         </li>
 

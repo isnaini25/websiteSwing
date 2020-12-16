@@ -64,33 +64,21 @@ main {
     margin-right: 30px;
 }
 
-.button-penjahit a,
-.button-all a {
+.button-penjahit a {
     font-family: 'Abel', sans-serif;
-    padding: 11px;
+    padding: 11px 14px;
     background-color: #FFAD32;
-    color: #585c63;
+    color: #6d6d6d;
     transition: 0.1s ease-in;
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
 }
 
-.button-all a:hover {
-    text-decoration: none;
-    background: #fad297;
-    transition: 0.5s ease-in;
-    color: #585c63;
-}
-
 .button-penjahit a:hover {
     text-decoration: none;
-    color: #FFAD32;
-    background: none;
-    border-style: solid;
-    border-width: 0.1;
-    border-color: #FFAD32;
-    transition: 0.5s ease-in;
+    background: #ffad32c9;
+    color: #6d6d6d;
 }
 
 .button-pelanggan a {
@@ -100,7 +88,7 @@ main {
     border-width: 0.1;
     border-color: #FFAD32;
     color: #FFAD32;
-    transition: 0.2s ease-in;
+    transition: 0.1s ease-in;
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -108,10 +96,48 @@ main {
 
 .button-pelanggan a:hover {
     text-decoration: none;
-    color: #585c63;
-    background: #FFAD32;
-    border-style: none;
-    transition: 0.5s ease-in;
+    color: #FFAD32;
+    background: #ffad3223;
+    border-style: solid;
+    border-width: 0.1;
+    border-color: #FFAD32;
+}
+
+.button-all a,
+.terapkan,
+.btn-ukuran {
+    font-family: 'Abel', sans-serif;
+    background-color: #FFAD32;
+    color: #ffffff;
+    transition: 0.1s ease-in;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+}
+
+.button-all a {
+    padding: 11px 20px;
+}
+
+.button-all a:hover,
+.terapkan:hover,
+.btn-ukuran:hover {
+    text-decoration: none;
+    background: #ffad32c9;
+    color: #ffffff;
+}
+
+.terapkan {
+    margin-top: 10px;
+    border: none;
+    width: 100px;
+    height: 30px;
+}
+
+.btn-ukuran {
+    border: none;
+    width: 150px;
+    height: 30px;
 }
 
 .penjahit-corner {
@@ -329,7 +355,7 @@ main {
 }
 
 .footer-content {
-    background-color: rgb(255, 173, 50);
+    background-color: #929292;
     height: auto;
     padding: 30px;
     font-family: 'abel', sans-serif;
@@ -394,6 +420,7 @@ main {
 }
 
 .container-penjahit {
+    display: block;
     position: relative;
     visibility: hidden;
     opacity: 0;
@@ -405,11 +432,12 @@ main {
 .container-forms {
     position: relative;
     font-family: 'Abel', sans-serif;
-    padding-bottom: 350px;
+    padding-bottom: 300px;
     padding-top: 40px;
 }
 
 .container-pelanggan {
+    display: block;
     height: 350px;
     position: relative;
     visibility: visible;
@@ -417,7 +445,61 @@ main {
     transition: opacity 0.5s linear, visbility 600ms;
 }
 
-.info-btn button {
+.info-item {
+    font-family: 'Abel', sans-serif;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    padding-bottom: 40px;
+    font-size: 13pt;
+}
+
+.container-masuk-penjahit {
+    visibility: hidden;
+    opacity: 0;
+    margin-top: -230px;
+    transition: opacity 1s linear, visbility 600ms;
+    display: block;
+    align-items: space-around;
+    flex-direction: column;
+}
+
+.container-masuk-forms {
+    padding-bottom: 200px;
+    font-family: 'Abel', sans-serif;
+}
+
+.container-masuk-pelanggan {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear, visbility 600ms;
+    display: block;
+    padding-top: 30px;
+}
+
+@media (max-width: 1000px) {
+    .info-item {
+        order: -1;
+    }
+    .container-forms {
+        padding-bottom: 400px;
+    }
+    .container-masuk-penjahit {
+        margin-top: -400px;
+    }
+}
+
+.form-item,
+.cari {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* .info-btn button {
     font-size: 12pt;
     font-family: 'Abel', sans-serif;
     border-style: solid;
@@ -439,61 +521,18 @@ main {
     border-style: solid;
     border-width: 0.1;
     border-color: #FFAD32;
-    transition: 0.5s ease-in;
-}
+    transition: 0.1s ease-in;
+} */
 
-.info-item {
-    font-family: 'Abel', sans-serif;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 20px;
-    padding-bottom: 40px;
-}
-
-.container-masuk-penjahit {
-    visibility: hidden;
-    opacity: 0;
-    margin-top: -230px;
-    transition: opacity 1s linear, visbility 600ms;
-    display: flex;
-    align-items: space-around;
-    flex-direction: column;
-}
-
-.container-masuk-forms {
-    padding-bottom: 300px;
-    font-family: 'Abel', sans-serif;
-}
-
-.container-masuk-pelanggan {
-    visibility: visible;
-    opacity: 1;
-    transition: opacity 0.5s linear, visbility 600ms;
-    display: flex;
-    align-items: space-around;
-    flex-direction: column;
-    padding-top: 30px;
-}
-
-.form-item,
-.cari {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.btn-all {
+.btn-all,
+.info-btn button {
     font-family: 'Abel', sans-serif;
     border-style: solid;
     background-color: #FFAD32;
     border: none;
     margin: auto;
-    height: 30px;
-    width: 300px;
     color: #585c63;
-    transition: 0.2s ease-in;
+    transition: 0.3s ease-in;
     -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     -moz-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
     box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
@@ -501,18 +540,25 @@ main {
     margin-top: 10px;
 }
 
-.btn-all:hover {
+.btn-all {
+    font-size: 12pt;
+    height: 30px;
+    width: 300px;
+}
+
+.btn-all:hover,
+.info-btn button:hover {
     text-decoration: none;
     color: #FFAD32;
-    background: none;
+    background: #ffad3223;
     border-style: solid;
     border-width: 0.1;
     border-color: #FFAD32;
-    transition: 0.5s ease-in;
+    transition: 0.3s ease-in;
 }
 
 .nav-pelanggan {
-    background-color: #f1aa3e;
+    background-color: #929292;
 }
 
 .link-nav {
@@ -573,6 +619,56 @@ main {
     font-family: 'Abel', sans-serif;
 }
 
+.profil-penjahit img {
+    -webkit-box-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+    -moz-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+    box-shadow: 0px -2px 8px 2px rgba(172, 172, 172, 0.5);
+}
+
+.aksi-chat {
+    text-decoration: none;
+    color: #FFAD32;
+    background-color: #eee;
+    border-style: solid;
+    border-width: 1;
+    border-color: #FFAD32;
+    transition: 0.1s ease-in;
+    margin: auto;
+    height: 50px;
+    width: 150px;
+    margin-left: 10px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+}
+
+.aksi-chat:hover {
+    color: #FFAD32;
+    background-color: #ffad3223;
+}
+
+.aksi-pesan {
+    font-family: 'Abel', sans-serif;
+    border-style: solid;
+    background-color: #FFAD32;
+    border: none;
+    margin: auto;
+    height: 50px;
+    width: 150px;
+    color: #ffffff;
+    transition: 0.1s ease-in;
+    padding: 0 20px;
+    margin-top: 20px;
+    margin-left: 10px;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    -moz-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+    box-shadow: 2px 2px 4px 0px rgba(184, 184, 184, 0.5);
+}
+
+.aksi-pesan:hover {
+    background-color: #ffad32c9;
+}
+
 .katalog {
     margin-bottom: 50px;
 }
@@ -585,7 +681,7 @@ main {
     height: 290px;
     object-fit: contain;
     position: relative;
-    z-index: -1;
+    margin-top: -30px;
 }
 
 .katalog-list {
@@ -610,15 +706,20 @@ main {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
+    position: relative;
+    z-index: 1;
 }
 
 .nama-katalog p {
     margin-top: 5px;
     margin-left: 6px;
+    color: rgb(53, 53, 53);
+    ;
 }
 
 .nama-katalog a {
-    color: #000000;
+    color: rgb(53, 53, 53);
+    ;
     font-size: 20px;
     padding: 10px;
     margin-left: 10px;
@@ -626,11 +727,119 @@ main {
 }
 
 .nama-katalog a:hover {
-    color: #e2e2e2;
+    text-decoration: none;
+    color: rgb(117, 117, 117);
 }
 
 .overlay-katalog {
     width: 100%;
     height: auto;
     background-color: rgba(0, 0, 0, 0.6);
+}
+
+.link-katalog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    font-family: 'abel', sans-serif;
+}
+
+.link-katalog a {
+    color: rgb(53, 53, 53);
+}
+
+.link-katalog a:hover {
+    text-decoration: none;
+    color: rgb(117, 117, 117);
+}
+
+.katalog-item {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.penjahit-katalog {
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.title p {
+    font-family: 'abel', sans-serif;
+    font-size: 17pt;
+    margin-top: 40px;
+}
+
+.link-bread {
+    margin-bottom: -20px;
+}
+
+.link-bread ul {
+    margin-left: -5px;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    position: relative;
+}
+
+.link-bread ul li {
+    color: #585c63;
+}
+
+.link-bread ul li a {
+    color: #585c63;
+}
+
+.link-bread ul li a:hover {
+    text-decoration: none;
+    color: #929292;
+}
+
+.katalog-next {
+    margin-top: 10px;
+    display: flex;
+    position: relative;
+    z-index: 1;
+    flex-direction: row-reverse;
+    margin-right: 10px;
+}
+
+.katalog-next a {
+    text-decoration: none;
+    color: #585c63;
+    font-size: 14pt;
+}
+
+.katalog-next a:hover {
+    text-decoration: none;
+    color: #929292;
+}
+
+.form-pesanan {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 50px 0;
+}
+
+.form-pesanan form .btn-all {
+    width: 400px;
+}
+
+.from-katalog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-pesanan form {
+    width: 400px;
+}
+
+.tabel-ukuran {
+    margin-top: 20px;
 }

@@ -70,7 +70,7 @@
                             <div class="row">
                                 <div class="form-item masuk-pelanggan col-lg-6">
                                     <h5>Masuk sebagi pelanggan</h5>
-                                    <form action="aksi_login.php" method="POST">
+                                    <form action="aksiMasuk.php" method="POST">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
                                             <input type="text" class="form-control" name="usernamePl" placeholder="Masukkan Username" required>
@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="container-masuk-penjahit" id="penjahit">
+                        <div class="container-masuk-penjahit" id="penjahit" >
                             <div class="row">
                                 <div class="info-item col-lg-6">
                                     <div class="info-text">
@@ -108,7 +108,7 @@
                                 </div>
                                 <div class="form-item col-lg-6 masuk-penjahit">
                                     <h5>Masuk sebagi penjahit</h5>
-                                    <form action="aksi_login.php" method="POST">
+                                    <form action="aksiMasuk.php" method="POST">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
                                             <input type="text" class="form-control" name="usernamePj" placeholder="Masukkan Username" required>

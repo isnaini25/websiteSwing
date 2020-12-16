@@ -29,8 +29,8 @@ include "../lib/koneksi.php";
                                     $kueri = mysqli_query($koneksi, "SELECT * FROM tbl_penjahit WHERE idPenjahit = '$id'");
                                    
                                     while ($res=mysqli_fetch_array($kueri)) {
-                                        $id_prov = $res['id_provinsi'];
-                                        $id_kota = $res['id_kota'];
+                                        $id_kecamatan = $res['idKecamatan'];
+                                        $id_kelurahan = intval($res['idKelurahan']);
                                         $id_bank = $res['kodeBank'];
                                         ?>
                                         <input type="text" name="idPenjahit" value="<?php echo $res['idPenjahit'];?>"hidden>
@@ -56,20 +56,20 @@ include "../lib/koneksi.php";
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="val-username">Provinsi
+                                            <label class="col-lg-4 col-form-label" for="val-username">Kecamatan
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="provinsi" name="provinsi">
-                                                    <option value="" >--Pilih Provinsi--</option>
+                                                <select class="form-control" id="kecamatan" name="kecamatan">
+                                                    
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-lg-4 col-form-label" for="val-username">Kota/Kabupaten
+                                            <label class="col-lg-4 col-form-label" for="val-username">Kelurahan
                                             </label>
                                             <div class="col-lg-6">
-                                                <select class="form-control" id="kota" name="kota">
-                                                    <option value="">--Pilih Kota/Kabupaten--</option>
+                                                <select class="form-control" id="kelurahan" name="kelurahan">
+                                                  
                                                 </select>
                                             </div>
                                         </div>
@@ -177,8 +177,8 @@ include "../lib/koneksi.php";
   };
 
   $(document).ready(function(){
-      var id_prov_selected = <?php echo $id_prov; ?>;
-      var id_kota_selected = <?php echo $id_kota; ?>;
+      var id_kecamatan_selected = <?php echo $id_kecamatan; ?>;
+      var id_kelurahan_selected = <?php echo $id_kelurahan; ?>;
       var id_bank_selected = <?php echo $id_bank; ?>;
       $.ajax({
           type:'post',
@@ -194,36 +194,36 @@ include "../lib/koneksi.php";
       });
       $.ajax({
           type:'post',
-          url:'module/data/dataProvinsi.php',
-          data:'id_provinsi='+id_prov_selected,
-          success:function(hasil_provinsi)
+          url:'module/data/dataKecamatan.php',
+          data:'id_kecamatan='+id_kecamatan_selected,
+          success:function(hasil_kecamatan)
           {
               
-              $("select[name=provinsi]").html(hasil_provinsi);
+              $("select[name=kecamatan]").html(hasil_kecamatan);
              
           }
 
       });
       $.ajax({
           type:'post',
-          url:'module/data/dataKota.php',
-          data:'id_kota='+id_kota_selected+'&id_provinsi='+id_prov_selected,
-          success:function(select_kota)
+          url:'module/data/dataKelurahan.php',
+          data:'id_kelurahan='+id_kelurahan_selected+'&id_kecamatan='+(id_kecamatan_selected*10),
+          success:function(select_kelurahan)
           {  
-              $("select[name=kota]").html(select_kota); 
+              $("select[name=kelurahan]").html(select_kelurahan); 
               
           }
 
       });
 
-      $("select[name=provinsi]").on("change", function(){
-          var id_provinsi = $("option:selected", this).attr("id_provinsi");
+      $("select[name=kecamatan]").on("change", function(){
+          var id_kecamatan = $("option:selected", this).attr("id_kecamatan");
           $.ajax({
               type:'post',
-              url: 'module/data/dataKota.php',
-              data:'id_provinsi='+id_provinsi,
-              success:function(hasil_kota){
-                $("select[name=kota]").html(hasil_kota);
+              url: 'module/data/dataKelurahan.php',
+              data:'id_kecamatan='+(id_kecamatan*10),
+              success:function(hasil_kelurahan){
+                $("select[name=kelurahan]").html(hasil_kelurahan);
               }
           })
       })

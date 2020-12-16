@@ -8,8 +8,8 @@ $id = $_POST['idPenjahit'];
 $nama = $_POST['nama'];
 $username = $_POST['username'];
 $alamat = $_POST['alamat'];
-$provinsi = $_POST['provinsi'];
-$kota = $_POST['kota'];
+$kecamatan = $_POST['kecamatan'];
+$kelurahan = $_POST['kelurahan'];
 $bank = $_POST['bank'];
 $alamat = $_POST['alamat'];
 $rekening = $_POST['rekening'];
@@ -21,18 +21,18 @@ $statusAktif = $_POST['statusAktif'];
 $deskripsi = $_POST['deskripsi'];
 
 
+$nama_file = $_FILES['gambar']['name'];
+$ukuran_file = $_FILES['gambar']['size'];
+$tipe_file = $_FILES['gambar']['type'];
+$tmp_file = $_FILES['gambar']['tmp_name'];
+
 if($statusAktif=="0"){
     $queryNonAktif = mysqli_query($koneksi, "UPDATE tbl_penjahit SET statusAktif='0' WHERE idPenjahit= '$id'");
     echo "<script>alert('Akun Anda berhasil dinon-aktifkan, masuk untuk mengaktifkan kembali'); window.location='$admin_url'+'logout.php';</script>";
 }else{
-    if (!empty($_FILES['gambar'])) {
-        $nama_file = $_FILES['gambar']['name'];
-        $ukuran_file = $_FILES['gambar']['size'];
-        $tipe_file = $_FILES['gambar']['type'];
-        $tmp_file = $_FILES['gambar']['tmp_name'];
-
-        
-        $path = "../../upload/" . $nama_file;
+    if ($nama_file!='') {
+       
+      $path = "../../upload/" . $nama_file;
         if ($tipe_file == "image/jpeg" || $tipe_file == "image/png" || $tipe_file == "image/jpg") {
             if ($ukuran_file <= 1000000) {
                 if (move_uploaded_file($tmp_file, $path)) {
@@ -40,8 +40,8 @@ if($statusAktif=="0"){
                     SET username='$username', 
                     nama='$nama',
                     alamat='$alamat',
-                    id_provinsi='$provinsi',
-                    id_kota='$kota',
+                    idKecamatan='$kecamatan',
+                    idKelurahan='$kelurahan',
                     nohp='$nohp',
                     email='$email',
                     deskripsi='$deskripsi',
@@ -65,8 +65,8 @@ if($statusAktif=="0"){
                     SET username='$username', 
                     nama='$nama',
                     alamat='$alamat',
-                    id_provinsi='$provinsi',
-                    id_kota='$kota',
+                    idKecamatan='$kecamatan',
+                    idKelurahan='$kelurahan',
                     nohp='$nohp',
                     email='$email',
                     deskripsi='$deskripsi',

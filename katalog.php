@@ -1,5 +1,5 @@
 <?php
     include "templates/header.php";
-    include "pages/profilPenjahitPage.php";
+    include "pages/katalogPage.php";
     include "templates/footer.php";
     ?>

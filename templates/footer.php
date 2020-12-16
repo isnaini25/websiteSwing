@@ -66,7 +66,7 @@
                         <label for="exampleInputEmail1">Saran & Masukan</label>
                         <textarea class="form-control" placeholder="Masukkan Saran dan Masukanmu" rows="3"  name="saran" required></textarea>
                     </div>
-                    <button type="submit" >Kirim</button>
+                    <button type="submit" class="terapkan" role="button" style="  background-color: #FFAD32;color: #ffffff;">Kirim</button>
                 </form>
             </div>
 
@@ -84,3 +84,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
     <script src="assets/js/owl.carousel.min.js"></script>
+    </body>
+
+</html>
