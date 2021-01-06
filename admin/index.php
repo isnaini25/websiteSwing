@@ -53,9 +53,9 @@
                                     </div>
                                     <button class="btn login-form__btn submit w-100 mb-2">Masuk</button>
                                     <?php
-                                    if (!empty($_POST['username'])&&!empty($pass = $_POST['password'])) {
+                                    if (!empty($_POST['username'])&&!empty($pass = md5($_POST['password']))) {
                                         $username = $_POST['username'];
-                                        $pass = $_POST['password'];
+                                        $pass = md5($_POST['password']);
 
                                         $login = mysqli_query($koneksi, "SELECT * FROM tbl_admin WHERE username='$username' AND passwordAdmin='$pass'");
                                         $ketemu = mysqli_num_rows($login);
@@ -69,6 +69,8 @@
                                             $_SESSION['level']='admin';
                                             
                                             header('location:adminweb.php?module=home');
+                                        }else{
+                                            echo "<script>alert ('Password salah!'); window.location ='$admin_url';</script>";
                                         } 
                                     }?>
                                     

@@ -1,6 +1,12 @@
 <?php 
 include "../lib/koneksi.php";
+include "../lib/config.php";
 session_start();
+
+if(empty($_SESSION['level'])){
+    echo "<script>alert ('Anda belum login'); window.location = '$base_url'+'masuk.php';
+        </script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,20 +17,88 @@ session_start();
     <title>Swing</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/logo-mark.png">
-    <!-- Pignose Calender -->
-    <link href="asset/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet">
+    <!-- Pignose Calender
+    <link href="asset/plugins/pg-calendar/css/pignose.calendar.min.css" rel="stylesheet"> -->
     <!-- Chartist -->
-    <link rel="stylesheet" href="asset/plugins/chartist/css/chartist.min.css">
-    <link rel="stylesheet" href="asset/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css">
+    <!-- <link rel="stylesheet" href="asset/plugins/chartist/css/chartist.min.css">
+    <link rel="stylesheet" href="asset/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css"> -->
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="stylesheet" href="asset/icons/themify-icons/themify-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
     <!-- Custom Stylesheet -->
     <link href="asset/css/style.css" rel="stylesheet">
+    <link href="asset/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="asset/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
+ 
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link href="asset/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
+    <link href="asset/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <!-- <script src="asset/plugins/jquery/jquery.min.js"></script> -->
+   
     
-
+    
 </head>
+<style>
+    input[type=text]:disabled{
+        background-color: #fff;
+        border:none;
+    }
+   .pesan {
+        display: flex;
+        flex-direction: row;
+    }
 
+    .pesan textarea {
+        width: 300px;
+    }
+
+    .kirim {
+        margin-left: 20px;
+        height: 40px;
+    }
+
+    .pesan1 {
+        background-color: #b057f4;
+        color: #fff;
+        
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .bubble-pesan{
+        display: flex;
+        flex-direction: column; 
+          
+    }
+
+    .nama-pesan2{
+        align-self: flex-end;
+     
+    }
+    .pesan2 {
+        background-color: #ebebeb;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .tanggal{
+        display: flex;
+        flex-direction: column; 
+       
+    }
+    /* .remove{
+        background-color: #de436f;
+    } */
+    .tanggal span{
+        background-color:#ededed;
+        margin-bottom: 10px;
+        border-radius: 30px;
+        align-self: center;
+    }
+    </style>
 <body>
 
     <!--*******************
@@ -93,120 +167,73 @@ session_start();
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                            <a href="javascript:void(0)" data-toggle="dropdown">
+                        <?php if($_SESSION['level']=='penjahit'){ ?>
+                            <a href="javascript:void(0)" data-toggle="dropdown" id="seen-pesan">
                                 <i class="mdi mdi-email-outline"></i>
-                                <span class="badge badge-pill gradient-1">3</span>
+                                <span class="badge badge-pill gradient-1"><span id="count-pesan-text"></span></span>
                             </a>
+                            <?php }?>
                             <div class="drop-down animated fadeIn dropdown-menu">
+                            <?php if($_SESSION['level']=='penjahit'){ ?>
                                 <div class="dropdown-content-heading d-flex justify-content-between">
-                                    <span class="">3 New Messages</span>
+                                    <span class=""><span id="count-pesan-text"></span> Pesan Baru</span>
                                     <a href="javascript:void()" class="d-inline-block">
-                                        <span class="badge badge-pill gradient-1">3</span>
+                                        <span class="badge badge-pill gradient-1" id="count-pesan"></span>
                                     </a>
                                 </div>
+                                
                                 <div class="dropdown-content-body">
-                                    <ul>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Saiful Islam</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="notification-unread">
-                                            <a href="javascript:void()">
-                                                
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Adam Smith</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Can you do me a favour?</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Barak Obama</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                
-                                                <div class="notification-content">
-                                                    <div class="notification-heading">Hilari Clinton</div>
-                                                    <div class="notification-timestamp">08 Hours ago</div>
-                                                    <div class="notification-text">Hello</div>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-
+                                    <ul id="notifikasi-pesan">
+                                    
+                                </ul>
                                 </div>
+                                <?php }?>
                             </div>
                         </li>
+
+                        
+                        <!-- Notifikasi codes -->
+                        <?php if(!empty($_SESSION['id_penjahit'])){ ?> 
                         <li class="icons dropdown">
-                            <a href="javascript:void(0)" data-toggle="dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown" id="seen">
                                 <i class="mdi mdi-bell-outline"></i>
-                                <span class="badge badge-pill gradient-2">3</span>
+                                <span class="badge badge-pill gradient-2" id="count"></span>
                             </a>
                             <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
-                                    <span class="">2 New Notifications</span>
-                                    <a href="javascript:void()" class="d-inline-block">
-                                        <span class="badge badge-pill gradient-2">5</span>
-                                    </a>
+                                    <span class=""><span id="count-text"></span> Notifikasi Baru</span>
+                                    
                                 </div>
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events near you</h6>
-                                                    <span class="notification-text">Within next 5 days</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Started</h6>
-                                                    <span class="notification-text">One hour ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
-                                                    <span class="notification-text">One hour ago</span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="javascript:void()">
-                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
-                                                <div class="notification-content">
-                                                    <h6 class="notification-heading">Events to Join</h6>
-                                                    <span class="notification-text">After two days</span>
-                                                </div>
-                                            </a>
-                                        </li>
+                                <div class="dropdown-content-body" style="overflow: scroll;height:250px;overflow-x: hidden;">
+                                    <ul id="notifikasi-pesanan">
+
                                     </ul>
 
                                 </div>
                             </div>
                         </li>
-                        
+                        <?php }else{?>
+                         <!-- Admin Notifikasi codes -->
+                         <li class="icons dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown" id="seen-admin">
+                                <i class="mdi mdi-bell-outline"></i>
+                                <span class="badge badge-pill gradient-2" id="count-admin"></span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class=""><span id="count-text-admin"></span> Notifikasi Baru</span>
+                                    
+                                </div>
+                                <div class="dropdown-content-body" style="overflow: scroll;height:250px;overflow-x: hidden;">
+                                    <ul id="notifikasi-admin" >
+
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </li>
+                        <?php }?>
+
                         <li class="icons dropdown">
                             <div class="user-img c-pointer position-relative" data-toggle="dropdown">
                                 <span class="activity active"></span>
@@ -230,17 +257,17 @@ session_start();
                                                 <a href="adminweb.php?module=profilAdmin"><i class="icon-user"></i> <span>Profil</span></a>
                                                 <?php } ?>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="javascript:void()">
                                                 <i class="icon-envelope-open"></i> <span>Inbox</span>
                                                 <div class="badge gradient-3 badge-pill gradient-1">3</div>
                                             </a>
-                                        </li>
+                                        </li> -->
 
                                         <hr class="my-2">
-                                        <li>
+                                        <!-- <li>
                                             <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
-                                        </li>
+                                        </li> -->
                                         <li><a href="logout.php"><i class="icon-key"></i> <span>Logout</span></a></li>
                                     </ul>
                                 </div>
@@ -249,6 +276,7 @@ session_start();
                     </ul>
                 </div>
             </div>
+           
         </div>
         <!--**********************************
             Header end ti-comment-alt
@@ -290,24 +318,24 @@ session_start();
                         </a>
                     </li>
                     <li>
-                        <a href="adminweb.php?module=pelanggan" aria-expanded="false">
+                        <a href="adminweb.php?module=laporanPenjahit" aria-expanded="false">
                         <i class="ti-cut"></i><span class="nav-text">Penjahit</span>
                         </a>
                     </li>
                     <li class="nav-label">LAIN-LAIN</li>
+                   
+                    <li>
+                        <a href="adminweb.php?module=laporanPelanggan" aria-expanded="false">
+                        <i class="ti-user"></i><span class="nav-text">Pelanggan</span>
+                        </a>
+                    </li>
+
                     <li>
                         <a href="adminweb.php?module=kurir" aria-expanded="false">
                         <i class="ti-truck"></i><span class="nav-text">Kurir</span>
                         </a>
                     </li>
 
-                    <li>
-                        <a href="adminweb.php?module=pelanggan" aria-expanded="false">
-                        <i class="ti-user"></i><span class="nav-text">Pengguna</span>
-                        </a>
-                    </li>
-
-                    
 
                     <li>
                         <a href="adminweb.php?module=feedback" aria-expanded="false">
@@ -342,7 +370,7 @@ session_start();
     
                     <li class="nav-label">TRANSAKSI</li>
                     <li>
-                        <a href="widgets.php" aria-expanded="false">
+                        <a href="adminweb.php?module=lihatPesanan" aria-expanded="false">
                             <i class="ti-shopping-cart" aria-hidden="true"></i><span class="nav-text">Pesanan</span>
                         </a>
                     </li>
@@ -353,16 +381,11 @@ session_start();
                         <ul aria-expanded="false">
                             <li><a href="adminweb.php?module=laporanPesanan">Pesanan</a></li>
                             <li><a href="adminweb.php?module=laporanPendapatan">Pendapatan</a></li>
-                            <li><a href="adminweb.php?module=laporanPelanggan">Pelanggan</a></li>
                         </ul>
                     </li>
                     
 
-                    <li>
-                        <a href="adminweb.php?module=ulasan" aria-expanded="false">
-                            <i class="ti-comment-alt"></i><span class="nav-text">Ulasan</span>
-                        </a>
-                    </li>
+                    
                     
                     <? } ?>
                 </ul>
@@ -449,6 +472,36 @@ session_start();
         elseif ($_GET['module'] == 'profilPenjahit'){
             include "module/penjahit/profilPenjahit.php";
         }
+        //pesanan
+        elseif ($_GET['module'] == 'lihatPesanan'){
+            include "module/pesanan/listPesanan.php";
+        }elseif ($_GET['module'] == 'detailPesanan'){
+            include "module/pesanan/detailPesanan.php";
+        }elseif ($_GET['module'] == 'cetakData'){
+            include "module/pesanan/cetakData.php";
+        }
+
+        //laporan
+        elseif ($_GET['module'] == 'laporanPesanan'){
+            include "module/laporan/laporanPesanan.php";
+        } elseif ($_GET['module'] == 'laporanPenjahit'){
+            include "module/laporan/laporanPenjahit.php";
+        }elseif ($_GET['module'] == 'detailPenjahit'){
+            include "module/laporan/detailPenjahit.php";
+        } elseif ($_GET['module'] == 'laporanPelanggan'){
+            include "module/laporan/laporanPelangganAdmin.php";
+        }
+
+        //ulasan
+        elseif ($_GET['module'] == 'ulasan'){
+            include "module/ulasan/ulasan.php";
+        }
+
+        //profilAdmin
+        elseif ($_GET['module'] == 'profilAdmin'){
+            include "module/admin/profilAdmin.php";
+        }
+
     
         ?>
 
@@ -465,6 +518,7 @@ session_start();
             Footer end
         ***********************************-->
     </div>
+     
     <!--**********************************
         Main wrapper end
     ***********************************-->
@@ -472,35 +526,290 @@ session_start();
     <!--**********************************
         Scripts
     ***********************************-->
+     <!-- Modal Chat -->
+
+     <div class="loading" id="loading" style="display:none">
+     <img src="asset/giphyload.gif" alt="" width="180px">
+     </div>
+     <div class="chat modal" role="dialog" id="modal-show">
+                        
+    </div>
+    <!-- Modal Foto -->                
+    <div id="modal-img" role="dialog" class="foto-modal modal">
+    </div>
+
+    
     <script src="asset/plugins/common/common.min.js"></script>
+   
     <script src="asset/js/custom.min.js"></script>
     <script src="asset/js/settings.js"></script>
     <script src="asset/js/gleek.js"></script>
     <script src="asset/js/styleSwitcher.js"></script>
 
-    <!-- Chartjs -->
+   
     <script src="asset/plugins/chart.js/Chart.bundle.min.js"></script>
-    <!-- Circle progress -->
+  
     <script src="asset/plugins/circle-progress/circle-progress.min.js"></script>
-    <!-- Datamap -->
+ 
     <script src="asset/plugins/d3v3/index.js"></script>
     <script src="asset/plugins/topojson/topojson.min.js"></script>
   
-    <!-- Morrisjs -->
-    <script src="asset/plugins/raphael/raphael.min.js"></script>
-    <script src="asset/plugins/morris/morris.min.js"></script>
-    <!-- Pignose Calender -->
+   
+    <!-- <script src="asset/plugins/raphael/raphael.min.js"></script>
+    <script src="asset/plugins/morris/morris.min.js"></script> -->
+    
     <script src="asset/plugins/moment/moment.min.js"></script>
     <script src="asset/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
+  
+    <script src="asset/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="asset/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+    <script src="asset/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="asset/plugins/moment/moment.js"></script>
+    <script src="asset/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+   
+    <script src="asset/js/plugins-init/form-pickers-init.js"></script>
     <!-- ChartistJS -->
-    <script src="asset/plugins/chartist/js/chartist.min.js"></script>
-    <script src="asset/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script>
+    <!-- <script src="asset/plugins/chartist/js/chartist.min.js"></script>
+    <script src="asset/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script> -->
 
 
 
     
 
+    <script type="text/javascript">
 
+   $(document).ready(function(){
+    $('#loading').bind('ajaxStart', function(){
+    $(this).show();
+}).bind('ajaxStop', function(){
+    $(this).hide();
+});
+
+      function load_notification_admin(){
+      $.ajax({
+          type:'post',
+          url:'notifikasiAdmin.php',
+          dataType:"json",
+          success:function(data)
+          {
+              $("#notifikasi-admin").html(data.notifikasi_pembayaran);
+              
+              $("#count-admin").html(data.count);
+              $("#count-text-admin").html(data.count);
+          }
+
+      });
+      }
+
+      $("#seen-admin").on("click", function(){
+          $.ajax({
+              type:'post',
+              url: 'notifikasiAdmin.php',
+              data:'view=0',
+              success:function(data){
+                $("#count-admin").html(data.count);
+              }
+          })
+      })
+
+
+    //Notifikasi Penjahit
+    <?php if(!empty($_SESSION['id_penjahit'])){?>
+      var id_penjahit = <?php echo $_SESSION['id_penjahit'];?>;
+      <?php }?>
+      
+      function load_notification(){  
+      $.ajax({
+          type:'post',
+          url:'notifikasi.php',
+          dataType:"json",
+          data:'id_penjahit='+id_penjahit,
+          success:function(sukses)
+          {
+              
+              $("#notifikasi-pesanan").html(sukses.notifikasi_pesanan);
+              $("#count").html(sukses.count);
+              $("#count-text").html(sukses.count);
+              
+          }
+
+      });
+      }
+
+      function load_message(){
+      $.ajax({
+          type:'post',
+          url:'pesan.php',
+          dataType:"json",
+          data:'id_penjahit='+id_penjahit,
+          success:function(data)
+          {
+              $("#notifikasi-pesan").html(data.notifikasi_pesan);
+              
+              $("#count-pesan").html(data.count);
+              $("#count-pesan-text").html(data.count);
+             
+          }
+
+      });
+      }
+
+      $("#seen").on("click", function(){
+          $.ajax({
+              type:'post',
+              url: 'notifikasi.php',
+              data:'view=0&id_penjahit='+id_penjahit,
+              success:function(data){
+                $("#count").html(data.count);
+              }
+          })
+      })
+
+      $("#seen-pesan").on("click", function(){
+          $.ajax({
+              type:'post',
+              url: 'pesan.php',
+              data:'view=0&id_penjahit='+id_penjahit,
+              success:function(data){
+                $("#count-pesan").html(data.count);
+              }
+          })
+      })
+      
+        //pesan
+
+        function modal_dialog(id_pelanggan, nama){
+            var modal_content = '<div class="modal-dialog" id="dialog-pelanggan-'+id_pelanggan+'">';
+            modal_content +=   '<div class="modal-content">';
+            modal_content += '<div class="modal-header">';
+            modal_content += '<h6 class="modal-title">Kirim pesan kepada '+nama+'</h6>';
+            modal_content += '<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>';
+            modal_content += '</div>';                  
+            modal_content += '<div class="modal-body" >';
+            modal_content += '<div class="container-fluid">';
+            modal_content += '<form>';                               
+            modal_content += '<div class="col-sm-12" id="isi-pesan-'+id_pelanggan+'" style="overflow:scroll; overflow-x: hidden; height:400px">';
+            modal_content += load_new_message(id_pelanggan);
+            modal_content += '<span id="bottom"></span> </div> ' ;
+            modal_content += '<div class="col-sm-12 pesan">';
+            modal_content += '<input type="text" hidden id="idPelanggan" value="'+id_pelanggan+'">';
+            modal_content += '<textarea maxlength="500" placeholder="Tulis pesan.." class="form-control mt-3" id="pesan" name="pesan"></textarea>';
+            modal_content += '<button type="button" class="btn kirim mt-3" style="background-color:  #b057f4;color:#fff;">Kirim</button>';
+            modal_content += '</div>';
+            modal_content += '</form>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+            
+            $('.chat').html(modal_content);
+        }
+
+
+        function send_message(){
+            var id_pelanggan = $('#idPelanggan').val();
+            var pesan = $("#pesan").val();
+
+            if(pesan == ""){
+                alert("Isi pesan!");
+            }else{
+            $.ajax({
+                type: "post",
+                url: "kirimPesan.php",
+                data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit + "&pesan=" + pesan + "&pengirim=penjahit",
+                success: function(data) {
+                   
+                    $('#pesan').val('');
+                    $('#isi-pesan-'+id_pelanggan).html(data);
+                    scrollToBottom(id_pelanggan)
+                }
+            });
+            }
+        }
+        
+        function load_new_message(id_pelanggan){
+            $.ajax({
+                type: "post",
+                url: "kirimPesan.php",
+               
+                data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit + "&pengirim=penjahit",
+                success: function(data) {
+                    $('#isi-pesan-'+id_pelanggan).html(data);
+                    
+                }
+            });
+        } 
+
+        $(document).on('click', '.pesan_pelanggan', function(){
+        var id_pelanggan = $(this).data('id');
+        var nama = $(this).data('nama');
+        modal_dialog(id_pelanggan, nama);
+        setTimeout(function(){ scrollToBottom(id_pelanggan); }, 10);
+        // $('#dialog-pelanggan-'+id_pelanggan).dialog({
+        // autoOpen:false,
+        // width:400
+        // });
+        
+        $('#dialog-pelanggan-'+id_pelanggan).dialog('open')(jQuery);
+        $('#modal-show').addClass("fade");
+       
+        });
+
+      
+        function scrollToBottom(id) {
+      var chat = document.getElementById('isi-pesan-'+id);
+      if(chat!=undefined){
+        chat.style.height = 400;
+        chat.scrollTop = chat.scrollHeight;  
+       
+      }
+     }
+  
+        function update_message(){
+            $('.chat-history').each(function(){
+                var id_pelanggan = $(this).data('id');
+                load_new_message(id_pelanggan);
+            });
+        }
+
+
+         $(document).on('click', '.close', function(){
+        $('.modal-dialog').remove();
+        $('#modal-show').removeClass("fade");
+        $('#modal-img').modal('hide');
+        modal = document.getElementById("modal-img");
+        modal.style.display = "none";
+        });
+
+             
+        $(document).on('click', '.kirim', function(){
+            send_message();
+        
+        });
+
+        
+        <?php if(!empty($_SESSION['id_penjahit']))
+        { ?>
+      
+        load_message();
+        load_notification();
+
+         setInterval(function(){
+        load_notification();
+        load_message();
+        update_message();
+        }, 2000);
+
+        <?php }else{?>
+
+        load_notification_admin();
+        setInterval(function(){
+        load_notification_admin();
+        }, 2000);
+        <?php }?>
+        
+    })
+ </script>
 </body>
 
 </html>

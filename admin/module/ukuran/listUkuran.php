@@ -40,9 +40,9 @@ include "../lib/koneksi.php";
                                         ?>
                                     <tr>
                                         <th colspan="3">Kode Ukuran <?php echo $res['size'];?>  &nbsp;&nbsp;
-                                        <button class="btn mb-1 btn-rounded btn-outline-secondary btn-sm">
+                                        <button class="btn mb-1 btn-rounded btn-sm">
                                         <a href="<?php echo $admin_url;?>adminweb.php?module=ubahUkuran&id=<?php echo $res['idUkuran']?>" data-toggle="tooltip" data-placement="top" title="Ubah"><i class="fa fa-pencil color-muted m-r-5"></i> </a> 
-                                        <button class="btn mb-1 btn-rounded btn-outline-danger btn-sm">
+                                        <button class="btn mb-1 btn-rounded btn-danger btn-sm">
                                             <a onClick ="return confirm('Anda yakin ingin menghapus data ini?')" href="<?php echo $admin_url;?>module/ukuran/aksiHapus.php?id=<?php echo $res['idUkuran']?>" data-toggle="tooltip" data-placement="top" title="Hapus"><i class="fa fa-close color-danger"></i></a></th>
                                     </tr>
                                     <tr>

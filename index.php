@@ -10,11 +10,16 @@
     <link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
 
+    <link rel="stylesheet" href="assets/css/flaticon.css">
     <link rel="stylesheet" href="assets/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="assets/css/jquery.timepicker.css">
 
-    <link rel="stylesheet" href="assets/css/flaticon.css">
-
+    <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="assets/js/bootstrap.bundle.js"></script>
+    
+    
+   
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -37,6 +42,7 @@
     <header>
         <div class="container-fluid p-0 jumbotron">
             <div class="overlay">
+                
                 <nav class="navbar navbar-expand-lg navbar-dark mr-5">
                     <img src="assets/img/logo-compact.png" alt="Logo" id="logo">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +56,7 @@
                                 <a class="nav-link" href="index.php">Beranda<span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Bantuan</a>
+                                <a class="nav-link" href="bantuan.php">Bantuan</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="daftar.php">Daftar</a>
@@ -58,7 +64,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="masuk.php">Masuk</a>
                             </li>
-
                         </ul>
                     </div>
                 </nav>
@@ -120,7 +125,7 @@
 
                             </div>
                             <div class="next">
-                                <a href="">LIHAT </a>
+                                <a href="profilPenjahit.php?id=<?php echo $res['idPenjahit']; ?>">LIHAT </a>
                             </div>
 
                         </div>
@@ -131,7 +136,7 @@
             </div>
             <div class="row">
                 <div class="button-all">
-                    <a href=""><span>Lihat lainnya</span></a>
+                    <a href="home.php"><span>Lihat lainnya</span></a>
                 </div>
             </div>
         </div>

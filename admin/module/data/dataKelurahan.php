@@ -15,25 +15,37 @@ if ($data_kelurahan === null) {
 // echo "<pre>";
 // print_r($data_kelurahan);
 // echo "</pre>";
-echo "<option value=''>--Pilih Kelurahan-- </option>";
-if (!empty($_POST['id_kelurahan'])) {
-
+ if (!empty($_POST['id_kelurahan'])||!empty($_POST['page'])) {
   $id = $_POST["id_kelurahan"];
-  
-  foreach ($data_kelurahan as $key => $tiap_kelurahan) {
-    if($tiap_kelurahan[4] != $id_kecamatan){
-      continue;
+  if(!empty($_POST['page'])){
+    foreach ($data_kelurahan as $key => $tiap_kelurahan) {
+      if($tiap_kelurahan[4] != $id_kecamatan){
+        continue;
+      }
+        if (intval($tiap_kelurahan[1]) == $id) {
+          echo $tiap_kelurahan[3];
+        }
+
     }
-    echo "<option 
-    value='".$tiap_kelurahan[1]."' 
-    id_kelurahan='".$tiap_kelurahan[1]."'";
-      if (intval($tiap_kelurahan[1]) == $id) {echo "selected";}
-      echo ">";
-      echo $tiap_kelurahan[3];
-      echo "</option>";
-    
+  }else{
+    echo "<option value=''>--Pilih Kelurahan-- </option>";
+    foreach ($data_kelurahan as $key => $tiap_kelurahan) {
+      if($tiap_kelurahan[4] != $id_kecamatan){
+        continue;
+      }
+      echo "<option 
+      value='".$tiap_kelurahan[1]."' 
+      id_kelurahan='".$tiap_kelurahan[1]."'";
+        if (intval($tiap_kelurahan[1]) == $id) {echo "selected";}
+        echo ">";
+        echo $tiap_kelurahan[3];
+        echo "</option>";
+      
+    }
   }
+ 
 } else {
+  echo "<option value=''>--Pilih Kelurahan-- </option>";
   foreach ($data_kelurahan as $key => $tiap_kelurahan) {
     if($tiap_kelurahan[4] != $id_kecamatan){
       continue;

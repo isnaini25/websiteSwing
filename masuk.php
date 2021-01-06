@@ -51,7 +51,7 @@
                                 <a class="nav-link" href="index.php">Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Bantuan</a>
+                                <a class="nav-link" href="bantuan.php">Bantuan</a>
                             </li>
                             <li class="nav-item ">
                                 <a class="nav-link" href="daftar.php">Daftar</a>
@@ -73,13 +73,14 @@
                                     <form action="aksiMasuk.php" method="POST">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Username</label>
-                                            <input type="text" class="form-control" name="usernamePl" placeholder="Masukkan Username" required>
+                                            <input type="text" class="form-control" name="usernamePl" placeholder="Masukkan Username" required id="username">
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password</label>
                                             <input type="password" class="form-control" name="passwordPl" placeholder="Masukkan Password" required>
                                         </div>
 
+                                        
                                         <button type="submit" class="btn-all">Masuk</button>
                                     </form>
                                 </div>
@@ -157,6 +158,8 @@
                 y.style.opacity = "1";
             }
         }
+
+        
     </script>
    
 

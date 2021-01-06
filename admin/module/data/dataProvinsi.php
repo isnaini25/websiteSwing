@@ -24,35 +24,50 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-//   echo $response;
+  //   echo $response;
 
-$array_response = json_decode($response, TRUE);
-$data_provinsi = $array_response["rajaongkir"]["results"];
+  $array_response = json_decode($response, TRUE);
+  $data_provinsi = $array_response["rajaongkir"]["results"];
 
-// echo "<pre>";
-// print_r($data_provinsi);
-// echo "</pre>";
+  // echo "<pre>";
+  // print_r($data_provinsi);
+  // echo "</pre>";
 
-echo "<option value=''>--Pilih Provinsi--</option>";
+  
 
-if(!empty($_POST['id_provinsi'])){
-  $id = $_POST['id_provinsi'];
-  foreach ($data_provinsi as $key => $tiap_provinsi) {
-    echo "<option 
-    value='".$tiap_provinsi["province_id"]."' 
-    id_provinsi ='".$tiap_provinsi["province_id"]."'";
-    if($tiap_provinsi["province_id"]==$id){echo "selected";}
-    echo ">";
-    echo $tiap_provinsi["province"];
-    echo "</option>";
-}
-}else{
-  foreach ($data_provinsi as $key => $tiap_provinsi) {
-    echo "<option 
-    value='".$tiap_provinsi["province_id"]."' 
-    id_provinsi ='".$tiap_provinsi["province_id"]."'>";
-    echo $tiap_provinsi["province"];
-    echo "</option>";
-}
-}
+  if (!empty($_POST['id_provinsi']) || !empty($_POST['page'])) {
+    $id = $_POST['id_provinsi'];
+
+    if (!empty($_POST['page'])) {
+      foreach ($data_provinsi as $key => $tiap_provinsi) {
+        if ($tiap_provinsi["province_id"] == $id) {
+          echo $tiap_provinsi["province"];
+        }
+      }
+    } else {
+      echo "<option value=''>--Pilih Provinsi--</option>";
+      foreach ($data_provinsi as $key => $tiap_provinsi) {
+        
+        echo "<option 
+    value='" . $tiap_provinsi["province_id"] . "' 
+    id_provinsi ='" . $tiap_provinsi["province_id"] . "'";
+        if ($tiap_provinsi["province_id"] == $id) {
+          echo "selected";
+        }
+        echo ">";
+        echo $tiap_provinsi["province"];
+        echo "</option>";
+      }
+    }
+  } else {
+    echo "<option value=''>--Pilih Provinsi--</option>";
+    foreach ($data_provinsi as $key => $tiap_provinsi) {
+      
+      echo "<option 
+    value='" . $tiap_provinsi["province_id"] . "' 
+    id_provinsi ='" . $tiap_provinsi["province_id"] . "'>";
+      echo $tiap_provinsi["province"];
+      echo "</option>";
+    }
+  }
 }

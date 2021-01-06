@@ -11,6 +11,7 @@ if (!empty($_POST['usernamePj']) && !empty($pass = $_POST['passwordPj'])) {
 
     if ($ketemu1 > 0) {
         session_start();
+        $update = mysqli_query($koneksi, "UPDATE tbl_penjahit SET statusAktif=1 WHERE username='$username' ");
         $_SESSION['id_penjahit'] = $r1['idPenjahit'];
         $_SESSION['namauser'] = $r1['username'];
         $_SESSION['passuser'] = $r1['password'];
@@ -32,6 +33,7 @@ else{
 
     if ($ketemu1 > 0) {
         session_start();
+        $update = mysqli_query($koneksi, "UPDATE tbl_pelanggan SET statusAktif=1 WHERE username='$username' ");
         $_SESSION['id_pelanggan'] = $r1['idPelanggan'];
         $_SESSION['namauser'] = $r1['username'];
         $_SESSION['passuser'] = $r1['password'];

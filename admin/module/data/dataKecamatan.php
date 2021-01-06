@@ -14,21 +14,34 @@ if ($data_kecamatan === null) {
 // print_r($data_kecamatan);
 // echo "</pre>";
 
-echo "<option value=''>--Pilih Kecamatan--</option>";
-if (!empty($_POST['id_kecamatan'])) {
+
+if (!empty($_POST['id_kecamatan'])||!empty($_POST['page'])) {
     $id = $_POST['id_kecamatan'];
-    foreach ($data_kecamatan as $key => $tiap_kecamatan) {
-        echo "<option 
-    value='".$tiap_kecamatan["id"]."'
-    id_kecamatan='".$tiap_kecamatan["id"]."'";
-        if ($tiap_kecamatan["id"]==$id) {
-            echo "selected";
+    
+    if(!empty($_POST['page'])){
+        foreach ($data_kecamatan as $key => $tiap_kecamatan) {
+            if ($tiap_kecamatan["id"]==$id) {
+                echo $tiap_kecamatan["nama"];
+            }
+
         }
-        echo ">";    
-        echo $tiap_kecamatan["nama"];
-        echo "</option>";
-    }
+    }else{
+          echo "<option value=''>--Pilih Kecamatan--</option>";
+         
+          foreach ($data_kecamatan as $key => $tiap_kecamatan) {
+              echo "<option 
+                    value='".$tiap_kecamatan["id"]."'
+                    id_kecamatan='".$tiap_kecamatan["id"]."'";
+              if ($tiap_kecamatan["id"]==$id) {
+                  echo "selected";
+              }
+              echo ">";
+              echo $tiap_kecamatan["nama"];
+              echo "</option>";
+          }
+      }
 }else{
+    echo "<option value=''>--Pilih Kecamatan--</option>";
     foreach ($data_kecamatan as $key => $tiap_kecamatan) {
         echo "<option 
     value='".$tiap_kecamatan["id"]."'
@@ -37,5 +50,3 @@ if (!empty($_POST['id_kecamatan'])) {
         echo "</option>";
     }  
 }
-
-?>

@@ -63,7 +63,7 @@
                                 <a class="nav-link" href="index.php">Beranda</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Bantuan</a>
+                                <a class="nav-link" href="bantuan.php">Bantuan</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="daftar.php">Daftar<span class="sr-only">(current)</span></a>

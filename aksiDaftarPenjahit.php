@@ -22,7 +22,7 @@ $nama_file = $_FILES['gambar']['name'];
  $queryCekUsername = mysqli_query($koneksi, "SELECT username from tbl_penjahit WHERE username = '$username'");
 
 $find = mysqli_num_rows($queryCekUsername);
-echo $find;
+
 
 if($find!=0){
     echo "<script>alert('Username telah terdaftar'); window.location= 'daftar.php';</script>";

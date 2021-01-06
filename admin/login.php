@@ -1,7 +1,7 @@
 <?php 
 include "../lib/koneksi.php";
 $username = $_POST['username'];
-$pass = $_POST['password'];
+$pass = md5($_POST['password']);
 
 $login = mysqli_query($koneksi, "SELECT * FROM tbl_admin WHERE username='$username' AND passwordAdmin='$pass'" );
 	$ketemu = mysqli_num_rows($login);
@@ -9,6 +9,7 @@ $login = mysqli_query($koneksi, "SELECT * FROM tbl_admin WHERE username='$userna
 
 	if($ketemu > 0 ){
 		session_start();
+		
 		$_SESSION['id_admin'] = $r['id_admin'];
 		$_SESSION['namauser'] = $r['username'];
 		$_SESSION['passuser'] = $r['password'];
@@ -16,7 +17,9 @@ $login = mysqli_query($koneksi, "SELECT * FROM tbl_admin WHERE username='$userna
         
 		header('location:adminweb.php');
 	}else{
-        echo "<script> alert('Login gagal! Username atau Password salah!') </script>";
+		echo $pass;
+		exit();
+        echo "<script>alert ('Password salah!'); window.location ='$admin_url';</script>";
         
     }
 

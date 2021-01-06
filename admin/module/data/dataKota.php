@@ -24,22 +24,55 @@ curl_close($curl);
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  $array_response = json_decode($response, TRUE);
-  $data_kota = $array_response["rajaongkir"]["results"];
+    $array_response = json_decode($response, true);
+    $data_kota = $array_response["rajaongkir"]["results"];
 
-// echo "<pre>";
-// print_r($data_kota);
-// echo "</pre>";
+//     echo "<pre>";
+//     print_r($data_kota);
+//     echo "</pre>";
+// exit();
 
-echo "<option value=''>--Pilih Kota/Kabupaten--</option>";
-foreach ($data_kota as $key => $tiap_kota) {
-    echo "<option 
+    if (!empty($_POST['page'])) {
+        if (!empty($_POST['page'])) {
+            foreach ($data_kota as $key => $tiap_kota) {
+                if ($tiap_kota["province_id"] != $id_prov) {
+                    continue;
+                }
+                if (intval($tiap_kota["city_id"]) == $id) {
+                    echo $tiap_kota["city_name"];
+                }
+            }
+        } else {
+            echo "<option value=''>--Pilih Kota/Kabupaten-- </option>";
+            foreach ($data_kota as $key => $tiap_kota) {
+              if ($tiap_kota["province_id"] != $id_prov) {
+                  continue;
+              }
+                echo "<option 
+              value='".$tiap_kota["city_id"]."' 
+              id_kota='".$tiap_kota["city_id"]."'";
+                if (intval($tiap_kota["city_id"]) == $id) {
+                    echo "selected";
+                }
+                echo ">";
+                echo $tiap_kota["type"]." ";
+                echo $tiap_kota["city_name"];
+                echo "</option>";
+            }
+        }
+    } else {
+        echo "<option value=''>--Pilih Kota/Kabupaten--</option>";
+        foreach ($data_kota as $key => $tiap_kota) {
+            echo "<option 
     value='".$tiap_kota["city_id"]."' 
     id_kota ='".$tiap_kota["city_id"]."'";
-    if($tiap_kota["city_id"]==$id){echo "selected";}
-    echo ">";
-    echo $tiap_kota["type"]." ";
-    echo $tiap_kota["city_name"];
-    echo "</option>";
-}
+            if ($tiap_kota["city_id"]==$id) {
+                echo "selected";
+            }
+            echo ">";
+            echo $tiap_kota["type"]." ";
+            echo $tiap_kota["city_name"];
+            echo "</option>";
+        }
+    }
 }

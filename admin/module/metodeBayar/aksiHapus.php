@@ -12,5 +12,4 @@ include "../../../lib/config.php";
 	}else{
 		echo "<script >alert('Data metode bayar gagal dihapus'); window.location = '$admin_url'+ 'adminweb.php?module=metodeBayar';</script>	";
     }
-    
-    ?>
+  ?>

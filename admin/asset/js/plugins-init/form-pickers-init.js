@@ -20,19 +20,19 @@
         format: 'DD/MM/YYYY HH:mm',
         minDate: new Date()
     });
-    // Clock pickers
-    $('#single-input').clockpicker({
-        placement: 'bottom',
-        align: 'left',
-        autoclose: true,
-        'default': 'now'
-    });
-    $('.clockpicker').clockpicker({
-        donetext: 'Done',
-    }).find('input').change(function() {
-        console.log(this.value);
-    });
-    
+    // // Clock pickers
+    // $('#single-input').clockpicker({
+    //     placement: 'bottom',
+    //     align: 'left',
+    //     autoclose: true,
+    //     'default': 'now'
+    // });
+    // $('.clockpicker').clockpicker({
+    //     donetext: 'Done',
+    // }).find('input').change(function() {
+    //     console.log(this.value);
+    // });
+
     $('#check-minutes').click(function(e) {
         // Have to stop propagation here
         e.stopPropagation();
@@ -41,14 +41,14 @@
     if (/mobile/i.test(navigator.userAgent)) {
         $('input').prop('readOnly', true);
     }
-    // Colorpicker
-    $(".colorpicker").asColorPicker();
-    $(".complex-colorpicker").asColorPicker({
-        mode: 'complex'
-    });
-    $(".gradient-colorpicker").asColorPicker({
-        mode: 'gradient'
-    });
+    // // Colorpicker
+    // $(".colorpicker").asColorPicker();
+    // $(".complex-colorpicker").asColorPicker({
+    //     mode: 'complex'
+    // });
+    // $(".gradient-colorpicker").asColorPicker({
+    //     mode: 'gradient'
+    // });
     // Date Picker
     jQuery('.mydatepicker, #datepicker').datepicker();
     jQuery('#datepicker-autoclose').datepicker({
@@ -61,7 +61,7 @@
     jQuery('#datepicker-inline').datepicker({
         todayHighlight: true
     });
-    // Daterange picker
+    // // Daterange picker
     $('.input-daterange-datepicker').daterangepicker({
         buttonClasses: ['btn', 'btn-sm'],
         applyClass: 'btn-danger',

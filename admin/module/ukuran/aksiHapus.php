@@ -6,6 +6,7 @@ include "../../../lib/config.php";
     $id = $_GET['id'];
     
 	$queryHapus = mysqli_query($koneksi, "DELETE FROM tbl_ukuran WHERE idUkuran='$id'");
+	$queryHapusItem = mysqli_query($koneksi, "DELETE FROM tbl_itemUkuran WHERE idUkuran='$id'");
 
 	if ($queryHapus) {
 		echo "<script >alert('Data ukuran berhasil dihapus'); window.location = '$admin_url'+ 'adminweb.php?module=lihatUkuran';</script>	";

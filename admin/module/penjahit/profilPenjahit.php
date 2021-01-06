@@ -32,6 +32,7 @@ include "../lib/koneksi.php";
                                         $id_kecamatan = $res['idKecamatan'];
                                         $id_kelurahan = intval($res['idKelurahan']);
                                         $id_bank = $res['kodeBank'];
+                                       
                                         ?>
                                         <input type="text" name="idPenjahit" value="<?php echo $res['idPenjahit'];?>"hidden>
                                         <div class="row justify-content-center">
@@ -41,10 +42,23 @@ include "../lib/koneksi.php";
                                             </div>
                                         </div>
                                         <div class="form-group row">
+                                        <label class="col-lg-4 col-form-label" for="val-username">Kategori
+                                            </label>
+                                        <div class="col-lg-6">
+                                        <?php $kueriKategori = mysqli_query($koneksi, "SELECT * FROM tbl_itemKategori A INNER JOIN tbl_kategori B ON A.idKategori = B.idKategori WHERE A.idPenjahit ='$id'");
+                          while ($resK = mysqli_fetch_array($kueriKategori)) {
+                              ?>
+                                        <span class="badge badge-pill badge-primary"><?php echo $resK['namaKategori'];?></span>
+                                        <?php
+                          }?>
+                                        </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label class="col-lg-4 col-form-label" for="val-username">Username
                                             </label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="username" placeholder="Masukan username.." value="<?php echo $res['username'];?>" required>
+                                                <input type="text" class="form-control" name="username" id="username" placeholder="Masukan username.." value="<?php echo $res['username'];?>" required>
+                                                <span id="cekUname"></span>
                                             </div>
                                         </div>
                                         
@@ -177,6 +191,7 @@ include "../lib/koneksi.php";
   };
 
   $(document).ready(function(){
+      
       var id_kecamatan_selected = <?php echo $id_kecamatan; ?>;
       var id_kelurahan_selected = <?php echo $id_kelurahan; ?>;
       var id_bank_selected = <?php echo $id_bank; ?>;
@@ -227,5 +242,29 @@ include "../lib/koneksi.php";
               }
           })
       })
+      $(document).ready(function(){
+       
+            $("#username").change(function(){  
+            var username=$("#username").val();
+ 
+          	  $.ajax({
+         		   	type:"post",
+         		   	url:"../checkUsernamePenjahit.php",
+         		   	data:"username="+username,
+        		    	success:function(data){
+        	    		if(data==0){
+        	    			$("#cekUname").html("<i class='fa fa-check'></i> Username tersedia");
+        	    		}
+        	    		else{
+        	    			$("#cekUname").html("<i class='fa fa-times'></i> Username tidak tersedia");
+        	    		}
+       		     	}
+       		     });
+ 
+            });
+ 
+         });
   })
+
+  
 </script>
