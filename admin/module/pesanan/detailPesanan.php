@@ -268,16 +268,25 @@ include "../lib/koneksi.php";
                                                                                                                     } ?>>
                                                        
                                                             
-                                                        
+                                                       <?php if ($status == 'MP') { ?>                                                       
                                                         <option value="MP" <?php if ($status == 'MP') {
                                                                                 echo "selected";
                                                                             } ?>>Menunggu Proses</option>
+                                                        <?php }
+                                                        
+                                                        if ($status == 'P' || $status == 'MP') {?> 
                                                         <option value="P" <?php if ($status == 'P') {
                                                                                 echo "selected";
                                                                             } ?>>Proses Penjahitan</option>
+                                                        <?php }
+                                                        if ($status == 'P' || $status == 'MP' || $status == 'S') {
+                                                         ?>
                                                         <option value="S" <?php if ($status == 'S') {
                                                                                 echo "selected";
                                                                             } ?>>Selesai Penjahitan</option>
+                                                                            <?php }
+                                                        
+                                                         ?>
                                                         <option value="K" <?php if ($status == 'K') {
                                                                                 echo "selected";
                                                                             } ?>>Dikirim</option>

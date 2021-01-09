@@ -160,17 +160,17 @@
                                 <div class="info-plus">
                                     <div class="plus-content">
                                         <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Fugiat deserunt vero, <br>
+                                        <p>Kepuasan pelanggan sangat diutamakan. Kamu dijamin puas dengan hasil pesanan jahitmu.
                                         </p>
                                     </div>
                                     <div class="plus-content">
                                         <i class="fas fa-comment"></i>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Fugiat deserunt vero, <br>
+                                        <p>Kamu bisa berdiskusi dengan penjahit mengenai pesanan jahitmu.  
                                         </p>
                                     </div>
                                     <div class="plus-content">
                                         <i class="fa fa-user" aria-hidden="true"></i>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <br> Fugiat deserunt vero, <br>
+                                        <p>Penjahit di Swing adalah penjahit di Kabupaten Bantul yang berpengalaman.
                                         </p>
                                     </div>
                                 </div>

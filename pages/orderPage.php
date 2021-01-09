@@ -2,14 +2,23 @@
     <?php
     include "lib/config.php";
     include "lib/koneksi.php";
+
+    $id = $_GET['id'];
+    $nama = $_GET['nama'];
+    $idP = $_SESSION['id_pelanggan'];
+    $kueriBlok = mysqli_query($koneksi, "SELECT * FROM tbl_blokir WHERE idPelanggan = '$idP' AND idPenjahit = '$id'");
+    $cari = mysqli_num_rows($kueriBlok);
+
+    if ($cari > 0) {
+        echo "<script>alert ('Anda tidak dapat melakukan pesanan! Anda diblokir'); window.location =  '$base_url'+'home.php';</script>";
+    }
     ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 mt-3 link-bread">
                 <ul>
                     <?php
-                    $id = $_GET['id'];
-                    $nama = $_GET['nama'];
+                    
                     ?>
                     <li><a href="profilPenjahit.php?id=<?php echo $id; ?>"><?php echo $nama; ?></a></li>
                     <li><i class="ti-angle-right"></i> Form Pesanan</li>

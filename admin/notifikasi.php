@@ -15,7 +15,7 @@ if (isset($_POST['view'])) {
 
 
 
-$query = mysqli_query($koneksi, "SELECT * from tbl_pesanan WHERE idPenjahit = '$id' AND (statusPesanan <> 'S' AND statusPesanan <> 'P')  ORDER BY timestamp DESC");
+$query = mysqli_query($koneksi, "SELECT * from tbl_pesanan WHERE idPenjahit = '$id' AND (statusPesanan <> 'S' AND statusPesanan <> 'P' AND statusPesanan <> 'K')  ORDER BY timestamp DESC");
 while ($res = mysqli_fetch_array($query)) {
     
         $output .=  "

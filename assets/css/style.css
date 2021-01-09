@@ -416,9 +416,6 @@ main {
     .bantuan .cari {
         width: 400px;
     }
-    .filter {
-        border-right: none;
-    }
 }
 
 .bantuan {
@@ -707,7 +704,6 @@ main {
     font-family: 'abel', sans-serif;
     padding: 13px;
     margin-bottom: 20px;
-    border-right: 0.5px solid #c4c4c4;
 }
 
 .filter hr {

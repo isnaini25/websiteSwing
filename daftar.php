@@ -81,7 +81,7 @@
                         <div class="container-pelanggan" id="pelanggan"> 
                             <div class="row">
 
-                                <div class="form-item daftar-pelanggan col-lg-6 m-auto">
+                                <div class="form-item daftar-pelanggan col-lg-6 m-auto" id="alamat-pelanggan">
                                     <h5>Daftar sebagi pelanggan</h5>
                                     <form action="aksiDaftarPelanggan.php" method="post" enctype="multipart/form-data">
 
@@ -187,7 +187,7 @@
                                         <button onclick="myFunction()">Daftar <br> sebagai PELANGGAN</button>
                                     </div>
                                 </div>
-                                <div class="form-item col-lg-6 m-auto daftar-penjahit">
+                                <div class="form-item col-lg-6 m-auto daftar-penjahit" id="alamat-penjahit">
                                     <h5>Daftar sebagi penjahit (khusus Kabupaten Bantul)</h5>
 
                                     <form action="aksiDaftarPenjahit.php" method="post" enctype="multipart/form-data">
@@ -288,11 +288,9 @@
                 
             }
         }
-
-   
+       
     </script>
-
-    <script>
+<script>
     $(document).ready(function(){
      
       $.ajax({
@@ -392,7 +390,6 @@
          });
     </script>
     
-
 </body>
 
 
