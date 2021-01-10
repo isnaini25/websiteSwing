@@ -148,11 +148,11 @@ include "../lib/koneksi.php";
         })
 
         $("#print").on("click", function() {
-           print();
+           cetak();
         }
         )
 
-        function print(){
+        function cetak(){
             var printContents = document.getElementById("printArea").innerHTML;
             var original = document.body.innerHTML;
             document.body.innerHTML = printContents;
