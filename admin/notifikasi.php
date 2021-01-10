@@ -27,12 +27,12 @@ while ($res = mysqli_fetch_array($query)) {
             <div class='notification-content'>  
             <h6 class='notification-heading'>Pesanan Baru <small>" . $res['idPesanan'] . "</small></h6>
             ";
-        }elseif ($res['kurirKirim'] != '') {
+        }elseif ($res['kurirKirim'] != '' && $res['statusPesanan'] == 'MB') {
             $output .= "<span class='mr-3 avatar-icon bg-success-lighten-2'><i class='ti-truck'></i></span>
                 <div class='notification-content'>  
                 <h6 class='notification-heading'>Bahan Pesanan <small>" . $res['idPesanan'] . "</small> Dikirim pelanggan</h6>
                 ";
-        }elseif ($res['bahan']=='B') {
+        }elseif ($res['bahan']=='B' && $res['statusPesanan'] == 'MB') {
             $output .= "<span class='mr-3 avatar-icon bg-success-lighten-2'><i class='ti-truck'></i></span>
                 <div class='notification-content'>  
                 <h6 class='notification-heading'>Bahan Pesanan <small>" . $res['idPesanan'] . "</small> Batal dikirim pelanggan</h6>
@@ -42,17 +42,17 @@ while ($res = mysqli_fetch_array($query)) {
                 <div class='notification-content'>  
                 <h6 class='notification-heading'>Pesanan <small>" . $res['idPesanan'] . "</small> Menunggu diproses</h6>
                 ";
-        } elseif ($res['statusPesanan'] == 'F' || ($res['bahan']=='B' && $res['statusPesanan'] == 'F' )) {
+        } elseif ($res['statusPesanan'] == 'F' || ($res['kurirKirim'] != '' && $res['statusPesanan'] == 'F' )) {
             $output .= "<span class='mr-3 avatar-icon bg-success-lighten-2'><i class='ti-thumb-up'></i></span>
                 <div class='notification-content'>  
                 <h6 class='notification-heading'>Pesanan <small>" . $res['idPesanan'] . "</small> Diterima Pelanggan</h6>
                 ";
-        } elseif ($res['statusPesanan'] == 'U' || ($res['bahan']=='B' && $res['statusPesanan'] == 'U' )) {
+        } elseif ($res['statusPesanan'] == 'U' || ($res['kurirKirim'] != '' && $res['statusPesanan'] == 'U' )) {
             $output .= "<span class='mr-3 avatar-icon bg-success-lighten-2'><i class='ti-comment-alt'></i></span>
                 <div class='notification-content'>  
                 <h6 class='notification-heading'>Ulasan baru pesanan <small>" . $res['idPesanan'] . "</small></h6>
                 ";
-        } elseif ($res['statusPesanan'] == 'B' || ($res['bahan']=='B' && $res['statusPesanan'] == 'B' )) {
+        } elseif ($res['statusPesanan'] == 'B' || ($res['kurirKirim'] != '' && $res['statusPesanan'] == 'B' )) {
             $output .= "<span class='mr-3 avatar-icon bg-success-lighten-2'><i class='ti-close'></i></span>
         <div class='notification-content'>  
         <h6 class='notification-heading'>Pesanan <small>" . $res['idPesanan'] . "</small> Dibatalkan</h6>
