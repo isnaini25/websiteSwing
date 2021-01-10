@@ -1,9 +1,12 @@
 <?php 
-$server = "localhost";
-$username = "root";
-$password = "";
-$database = "swing";
-
+$server = "sql12.freesqldatabase.com";
+$username = "sql12386084";
+$password = "Y42jMx8hXs";
+$database = "sql12386084";
+// $server = "localhost";
+// $username = "root";
+// $password = "";
+// $database = "swing";
 $koneksi = mysqli_connect($server, $username, $password, $database);
 
 if(mysqli_connect_errno()){
