@@ -1,8 +1,8 @@
 <?php 
-$server = "sql104.epizy.com";
-$username = "epiz_27649969";
-$password = "YT6foJLbtc";
-$database = "epiz_27649969_swing";
+$server = "localhost";
+$username = "root";
+$password = "";
+$database = "swing";
 
 $koneksi = mysqli_connect($server, $username, $password, $database);
 
