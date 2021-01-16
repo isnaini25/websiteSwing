@@ -82,12 +82,13 @@
                             <div class="nama-katalog">
                                 <p>
                                     <?php $name = strip_tags($resKat['namaKatalog']);
+                              
                                     if (strlen($name) > 20) {
                                         $stringCut = substr($name, 0, 20);
                                         $endPoint = strrpos($stringCut, ' ');
 
-
                                         $name = $endPoint ? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                                   
                                         $name .= '...';
                                     }
                                     echo $name;

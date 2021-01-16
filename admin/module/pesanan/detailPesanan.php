@@ -38,7 +38,8 @@ include "../lib/koneksi.php";
                         ?>
                             <div class="card-title">
                                 <h4 class="d-inline">Detail Pesanan</h4>
-                                <a href="adminweb.php?module=cetakData&idPelanggan=<?php echo $res['idPelanggan']; ?>&idPenjahit=<?php echo $res['idPenjahit']; ?>" class="btn btn-success float-right mb-3" data-toggle="tooltip" data-placement="top" title="Cetak Data Pengiriman"><i class="ti-printer"></i></a>
+                                <a href="adminweb.php?module=cetakData&idPelanggan=<?php echo $res['idPelanggan']; ?>&idPenjahit=<?php echo $res['idPenjahit']; ?>" class="btn btn-success float-right mb-3" 
+                                data-toggle="tooltip" data-placement="top" title="Cetak Data Pengiriman"><i class="ti-printer"></i></a>
                                 <?php if($status=='U'){?>
                                             <a class="btn btn-sm btn-secondary" href="<?php echo $admin_url;?>adminweb.php?module=ulasan&id=<?php echo $res['idPesanan']?>"><i class="ti-comment-alt"></i> Ulasan</a>
                                             <?php }?>
@@ -186,7 +187,8 @@ include "../lib/koneksi.php";
                                                 <?php
                                                     $no++;
                                                 } ?>
-                                            </div><a class="carousel-control-prev" href="#carouselExampleControls" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a><a class="carousel-control-next" href="#carouselExampleControls" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+                                            </div><a class="carousel-control-prev" href="#carouselExampleControls" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a>
+                                            <a class="carousel-control-next" href="#carouselExampleControls" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
                                         </div>
 
                                         <?php
@@ -274,7 +276,7 @@ include "../lib/koneksi.php";
                                                                             } ?>>Menunggu Proses</option>
                                                         <?php }
                                                         
-                                                        if ($status == 'P' || $status == 'MP') {?> 
+                                                        if ($status == 'P' || $status == 'MP' ||$status == 'MB' || $status == 'KB' ) {?> 
                                                         <option value="P" <?php if ($status == 'P') {
                                                                                 echo "selected";
                                                                             } ?>>Proses Penjahitan</option>

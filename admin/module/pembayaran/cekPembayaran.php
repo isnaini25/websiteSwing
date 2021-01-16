@@ -86,21 +86,14 @@ include "../lib/koneksi.php";
                                         </div>
                                     </div>
                                  
-
                                     <div class="carousel slide" data-ride="carousel">
                                         <div class="carousel-inner">
 
                                                 <div class="carousel-item active">
                                                     <img style="object-fit: contain;" data-id="100" class="d-block w-100 img-zoom" height="400" src="upload/<?php echo $res['bukti']; ?>">
                                                 </div>
-            
-                                
-
                                         </div>
                                         
-
-
-
                                         <button type="submit" onClick ="return confirm('Konfirmasi pembayaran?')" class="btn btn-primary gradient-1 mt-4 float-right">
                                         Konfirmasi
                                         </button>

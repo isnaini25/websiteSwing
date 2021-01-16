@@ -136,7 +136,8 @@
                                             }
                                             if ($no > 1) {
                                                 ?>
-                                        </div><a class="carousel-control-prev" href="#carouselExampleControls" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a><a class="carousel-control-next" href="#carouselExampleControls" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
+                                        </div><a class="carousel-control-prev" href="#carouselExampleControls" data-slide="prev"><span class="carousel-control-prev-icon"></span> <span class="sr-only">Previous</span> </a>
+                                        <a class="carousel-control-next" href="#carouselExampleControls" data-slide="next"><span class="carousel-control-next-icon"></span> <span class="sr-only">Next</span></a>
                                     <?php
                                             } ?>
                                     </div>
@@ -259,6 +260,8 @@
                             </form>
                     </div>
                 <?php } ?>
+
+                
                 <div class="biaya-pesanan">
                     <h5 class="text-center">Biaya Pesanan Jahit</h5>
                     <?php if ($st == 'MP') { ?>

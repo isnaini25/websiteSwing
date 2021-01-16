@@ -16,8 +16,8 @@ if ($nama_file!='') {
         if ($ukuran_file <= 1000000) {
             if (move_uploaded_file($tmp_file, $path)) {
                 $queryBayar = mysqli_query($koneksi, "UPDATE tbl_pembayaran SET bukti = '$nama_file', tglBayar = '$waktu' WHERE idPesanan = '$idPesanan' ");
-                $queryBayar = mysqli_query($koneksi, "UPDATE tbl_pesanan SET statusPesanan = 'KB' WHERE idPesanan = '$idPesanan' ");
-                if ($queryBayar) {
+                $queryPesan = mysqli_query($koneksi, "UPDATE tbl_pesanan SET statusPesanan = 'KB' WHERE idPesanan = '$idPesanan' ");
+                if ($queryBayar && $queryPesan) {
                     echo "<script>alert('Bukti pembayaran berhasil masuk! Silakan menunggu konfirmasi'); window.location= 'home.php';</script>";
                 } else {
                     echo "<script>alert('Gagal'); window.location= 'pembayaran.php?idPesanan=$idPesanan;</script>";

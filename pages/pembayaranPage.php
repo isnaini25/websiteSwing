@@ -19,7 +19,7 @@
                     include "lib/koneksi.php";
                     $idPesanan = $_GET['idPesanan'];
                     $kueri = mysqli_query($koneksi, "SELECT * FROM tbl_pembayaran B 
-            INNER JOIN tbl_metodeBayar C ON B.idMetodeBayar = C.idMetodeBayar WHERE idPesanan ='$idPesanan'");
+                    INNER JOIN tbl_metodeBayar C ON B.idMetodeBayar = C.idMetodeBayar WHERE idPesanan ='$idPesanan'");
                     while ($res = mysqli_fetch_array($kueri)) {
 
                     ?>
