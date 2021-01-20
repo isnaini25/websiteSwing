@@ -306,6 +306,7 @@ if(empty($_SESSION['level'])){
                         <ul aria-expanded="false">
                              <li><a href="adminweb.php?module=cekBayar">Cek Pembayaran</a></li>
                             <li><a href="adminweb.php?module=metodeBayar">Metode Pembayaran</a></li>
+                            <li><a href="adminweb.php?module=laporanBayar">Laporan</a></li>
                         </ul>
                     </li>
                     <li class="nav-label">PENJAHIT</li>    
@@ -499,6 +500,8 @@ if(empty($_SESSION['level'])){
             include "module/laporan/laporanPelangganAdmin.php";
         } elseif ($_GET['module'] == 'laporanPendapatan'){
             include "module/laporan/laporanPendapatan.php";
+        }elseif ($_GET['module'] == 'laporanBayar'){
+            include "module/laporan/laporanPembayaran.php";
         }
 
         //ulasan
