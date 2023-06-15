@@ -10,6 +10,7 @@ if(empty($_SESSION['level'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -24,81 +25,86 @@ if(empty($_SESSION['level'])){
     <link rel="stylesheet" href="asset/plugins/chartist-plugin-tooltips/css/chartist-plugin-tooltip.css"> -->
     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
     <link rel="stylesheet" href="asset/icons/themify-icons/themify-icons.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Custom Stylesheet -->
     <link href="asset/css/style.css" rel="stylesheet">
-    <link href="asset/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet">
+    <link href="asset/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css"
+        rel="stylesheet">
     <link href="asset/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
- 
+
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link href="asset/plugins/timepicker/bootstrap-timepicker.min.css" rel="stylesheet">
     <link href="asset/plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
     <!-- <script src="asset/plugins/jquery/jquery.min.js"></script> -->
-   
-    
-    
+
+
+
 </head>
 <style>
-    input[type=text]:disabled{
-        background-color: #fff;
-        border:none;
-    }
-   .pesan {
-        display: flex;
-        flex-direction: row;
-    }
+input[type=text]:disabled {
+    background-color: #fff;
+    border: none;
+}
 
-    .pesan textarea {
-        width: 300px;
-    }
+.pesan {
+    display: flex;
+    flex-direction: row;
+}
 
-    .kirim {
-        margin-left: 20px;
-        height: 40px;
-    }
+.pesan textarea {
+    width: 300px;
+}
 
-    .pesan1 {
-        background-color: #b057f4;
-        color: #fff;
-        
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+.kirim {
+    margin-left: 20px;
+    height: 40px;
+}
 
-    .bubble-pesan{
-        display: flex;
-        flex-direction: column; 
-          
-    }
+.pesan1 {
+    background-color: #b057f4;
+    color: #fff;
 
-    .nama-pesan2{
-        align-self: flex-end;
-     
-    }
-    .pesan2 {
-        background-color: #ebebeb;
-        border-radius: 5px;
-        padding: 10px;
-        margin-bottom: 10px;
-    }
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
 
-    .tanggal{
-        display: flex;
-        flex-direction: column; 
-       
-    }
-    /* .remove{
+.bubble-pesan {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nama-pesan2 {
+    align-self: flex-end;
+
+}
+
+.pesan2 {
+    background-color: #ebebeb;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.tanggal {
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* .remove{
         background-color: #de436f;
     } */
-    .tanggal span{
-        background-color:#ededed;
-        margin-bottom: 10px;
-        border-radius: 30px;
-        align-self: center;
-    }
-    </style>
+.tanggal span {
+    background-color: #ededed;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    align-self: center;
+}
+</style>
+
 <body>
 
     <!--*******************
@@ -111,7 +117,7 @@ if(empty($_SESSION['level'])){
             </svg>
         </div>
     </div>
-   
+
     <!--*******************
         Preloader end
     ********************-->
@@ -129,14 +135,14 @@ if(empty($_SESSION['level'])){
             <div class="brand-logo">
                 <a href="adminweb.php?module=home">
                     <b class="logo-abbr"><img src="../assets/img/logo-mark.png" alt=""> </b>
-                    <span class="logo-compact"><img src="../assets/img/logo-compact.png" alt=""  width="150px"></span>
+                    <span class="logo-compact"><img src="../assets/img/logo-compact.png" alt="" width="150px"></span>
                     <span class="brand-title">
                         <img src="../assets/img/logo-compact.png" alt="" width="150px">
                     </span>
                 </a>
             </div>
         </div>
-        
+
         <!--**********************************
             Nav header end
         ***********************************-->
@@ -155,9 +161,11 @@ if(empty($_SESSION['level'])){
                 <div class="header-left">
                     <div class="input-group icons">
                         <div class="input-group-prepend">
-                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i
+                                    class="mdi mdi-magnify"></i></span>
                         </div>
-                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                        <input type="search" class="form-control" placeholder="Search Dashboard"
+                            aria-label="Search Dashboard">
                         <div class="drop-down animated flipInX d-md-none">
                             <form action="#">
                                 <input type="text" class="form-control" placeholder="Search">
@@ -168,7 +176,7 @@ if(empty($_SESSION['level'])){
                 <div class="header-right">
                     <ul class="clearfix">
                         <li class="icons dropdown">
-                        <?php if($_SESSION['level']=='penjahit'){ ?>
+                            <?php if($_SESSION['level']=='penjahit'){ ?>
                             <a href="javascript:void(0)" data-toggle="dropdown" id="seen-pesan">
                                 <i class="mdi mdi-email-outline"></i>
                                 <span class="badge badge-pill gradient-1"><span id="count-pesan-text"></span></span>
@@ -176,26 +184,26 @@ if(empty($_SESSION['level'])){
                             <input type="text" hidden id="idPenjahit" value="<?php echo $_SESSION['id_penjahit'];?>">
                             <?php }?>
                             <div class="drop-down animated fadeIn dropdown-menu">
-                            <?php if($_SESSION['level']=='penjahit'){ ?>
+                                <?php if($_SESSION['level']=='penjahit'){ ?>
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class=""><span id="count-pesan-text"></span> Pesan Baru</span>
                                     <a href="javascript:void()" class="d-inline-block">
                                         <span class="badge badge-pill gradient-1" id="count-pesan"></span>
                                     </a>
                                 </div>
-                                
+
                                 <div class="dropdown-content-body">
                                     <ul id="notifikasi-pesan">
-                                    
-                                </ul>
+
+                                    </ul>
                                 </div>
                                 <?php }?>
                             </div>
                         </li>
 
-                        
+
                         <!-- Notifikasi codes -->
-                        <?php if(!empty($_SESSION['id_penjahit'])){ ?> 
+                        <?php if(!empty($_SESSION['id_penjahit'])){ ?>
                         <li class="icons dropdown">
                             <a href="javascript:void(0)" data-toggle="dropdown" id="seen">
                                 <i class="mdi mdi-bell-outline"></i>
@@ -204,9 +212,10 @@ if(empty($_SESSION['level'])){
                             <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class=""><span id="count-text"></span> Notifikasi Baru</span>
-                                    
+
                                 </div>
-                                <div class="dropdown-content-body" style="overflow: scroll;height:250px;overflow-x: hidden;">
+                                <div class="dropdown-content-body"
+                                    style="overflow: scroll;height:250px;overflow-x: hidden;">
                                     <ul id="notifikasi-pesanan">
 
                                     </ul>
@@ -215,8 +224,8 @@ if(empty($_SESSION['level'])){
                             </div>
                         </li>
                         <?php }else{?>
-                         <!-- Admin Notifikasi codes -->
-                         <li class="icons dropdown">
+                        <!-- Admin Notifikasi codes -->
+                        <li class="icons dropdown">
                             <a href="javascript:void(0)" data-toggle="dropdown" id="seen-admin">
                                 <i class="mdi mdi-bell-outline"></i>
                                 <span class="badge badge-pill gradient-2" id="count-admin"></span>
@@ -224,10 +233,11 @@ if(empty($_SESSION['level'])){
                             <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
                                 <div class="dropdown-content-heading d-flex justify-content-between">
                                     <span class=""><span id="count-text-admin"></span> Notifikasi Baru</span>
-                                    
+
                                 </div>
-                                <div class="dropdown-content-body" style="overflow: scroll;height:250px;overflow-x: hidden;">
-                                    <ul id="notifikasi-admin" >
+                                <div class="dropdown-content-body"
+                                    style="overflow: scroll;height:250px;overflow-x: hidden;">
+                                    <ul id="notifikasi-admin">
 
                                     </ul>
 
@@ -244,20 +254,22 @@ if(empty($_SESSION['level'])){
                                      $kueri = mysqli_query($koneksi, "SELECT * FROM tbl_penjahit WHERE idPenjahit = '$id'");
                                     
                                      while ($res=mysqli_fetch_array($kueri)) {?>
-                                <img src="upload/<?php echo $res['foto'];?>" height="40"  alt="">
+                                <img src="upload/<?php echo $res['foto'];?>" height="40" alt="">
                                 <?php }}else{ ?>
-                                    <img src="../assets/img/admin.png" height="40"  alt="">
-                                    <?php } ?>
+                                <img src="../assets/img/admin.png" height="40" alt="">
+                                <?php } ?>
                             </div>
                             <div class="drop-down dropdown-profile animated fadeIn dropdown-menu">
                                 <div class="dropdown-content-body">
                                     <ul>
                                         <li>
                                             <?php if($_SESSION['level']=="penjahit"){ ?>
-                                            <a href="adminweb.php?module=profilPenjahit"><i class="icon-user"></i> <span>Profil</span></a>
+                                            <a href="adminweb.php?module=profilPenjahit"><i class="icon-user"></i>
+                                                <span>Profil</span></a>
                                             <?php }else{ ?>
-                                                <a href="adminweb.php?module=profilAdmin"><i class="icon-user"></i> <span>Profil</span></a>
-                                                <?php } ?>
+                                            <a href="adminweb.php?module=profilAdmin"><i class="icon-user"></i>
+                                                <span>Profil</span></a>
+                                            <?php } ?>
                                         </li>
                                         <!-- <li>
                                             <a href="javascript:void()">
@@ -278,7 +290,7 @@ if(empty($_SESSION['level'])){
                     </ul>
                 </div>
             </div>
-           
+
         </div>
         <!--**********************************
             Header end ti-comment-alt
@@ -301,15 +313,15 @@ if(empty($_SESSION['level'])){
 
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="ti-credit-card"></i><span class="nav-text">Pembayaran</span>
+                            <i class="ti-credit-card"></i><span class="nav-text">Pembayaran</span>
                         </a>
                         <ul aria-expanded="false">
-                             <li><a href="adminweb.php?module=cekBayar">Cek Pembayaran</a></li>
+                            <li><a href="adminweb.php?module=cekBayar">Cek Pembayaran</a></li>
                             <li><a href="adminweb.php?module=metodeBayar">Metode Pembayaran</a></li>
                             <li><a href="adminweb.php?module=laporanBayar">Laporan</a></li>
                         </ul>
                     </li>
-                    <li class="nav-label">PENJAHIT</li>    
+                    <li class="nav-label">PENJAHIT</li>
                     <li>
                         <a href="adminweb.php?module=kategoriPenjahit" aria-expanded="false">
                             <i class="ti-tag" aria-hidden="true"></i><span class="nav-text">Kategori Penjahit</span>
@@ -317,25 +329,26 @@ if(empty($_SESSION['level'])){
                     </li>
                     <li>
                         <a href="adminweb.php?module=namaUkuran" aria-expanded="false">
-                            <i class="ti-ruler-pencil" aria-hidden="true"></i><span class="nav-text">Standar Ukuran</span>
+                            <i class="ti-ruler-pencil" aria-hidden="true"></i><span class="nav-text">Standar
+                                Ukuran</span>
                         </a>
                     </li>
                     <li>
                         <a href="adminweb.php?module=laporanPenjahit" aria-expanded="false">
-                        <i class="ti-cut"></i><span class="nav-text">Penjahit</span>
+                            <i class="ti-cut"></i><span class="nav-text">Penjahit</span>
                         </a>
                     </li>
                     <li class="nav-label">LAIN-LAIN</li>
-                   
+
                     <li>
                         <a href="adminweb.php?module=laporanPelanggan" aria-expanded="false">
-                        <i class="ti-user"></i><span class="nav-text">Pelanggan</span>
+                            <i class="ti-user"></i><span class="nav-text">Pelanggan</span>
                         </a>
                     </li>
 
                     <li>
                         <a href="adminweb.php?module=kurir" aria-expanded="false">
-                        <i class="ti-truck"></i><span class="nav-text">Kurir</span>
+                            <i class="ti-truck"></i><span class="nav-text">Kurir</span>
                         </a>
                     </li>
 
@@ -347,7 +360,7 @@ if(empty($_SESSION['level'])){
                     </li>
 
                     <?php }elseif ($_SESSION['level']=="penjahit"){ ?>
-                        <li class="nav-label">Dashboard </li>
+                    <li class="nav-label">Dashboard </li>
                     <li>
                         <a href="adminweb.php?module=homePenjahit" aria-expanded="false">
                             <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
@@ -357,7 +370,7 @@ if(empty($_SESSION['level'])){
                     <li class="nav-label">PENJAHIT</li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="ti-bookmark-alt"></i><span class="nav-text">Katalog</span>
+                            <i class="ti-bookmark-alt"></i><span class="nav-text">Katalog</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="adminweb.php?module=tambahKatalog">Tambah</a></li>
@@ -366,11 +379,11 @@ if(empty($_SESSION['level'])){
                     </li>
 
                     <li>
-                      <a href="adminweb.php?module=lihatUkuran" aria-expanded="false">
-                          <i class="ti-ruler-alt-2"></i><span class="nav-text">Ukuran</span>
+                        <a href="adminweb.php?module=lihatUkuran" aria-expanded="false">
+                            <i class="ti-ruler-alt-2"></i><span class="nav-text">Ukuran</span>
                         </a>
                     </li>
-    
+
                     <li class="nav-label">TRANSAKSI</li>
                     <li>
                         <a href="adminweb.php?module=lihatPesanan" aria-expanded="false">
@@ -379,7 +392,7 @@ if(empty($_SESSION['level'])){
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void()" aria-expanded="false">
-                        <i class="ti-bar-chart"></i><span class="nav-text">Laporan</span>
+                            <i class="ti-bar-chart"></i><span class="nav-text">Laporan</span>
                         </a>
                         <ul aria-expanded="false">
                             <li><a href="adminweb.php?module=laporanPesanan">Pesanan</a></li>
@@ -391,11 +404,11 @@ if(empty($_SESSION['level'])){
                             <i class="ti-user" aria-hidden="true"></i><span class="nav-text">Pelanggan</span>
                         </a>
                     </li>
-                    
 
-                    
-                    
-                    <? } ?>
+
+
+
+                    <?php } ?>
                 </ul>
             </div>
         </div>
@@ -523,14 +536,15 @@ if(empty($_SESSION['level'])){
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a>
+                    2018</p>
             </div>
         </div>
         <!--**********************************
             Footer end
         ***********************************-->
     </div>
-     
+
     <!--**********************************
         Main wrapper end
     ***********************************-->
@@ -538,293 +552,302 @@ if(empty($_SESSION['level'])){
     <!--**********************************
         Scripts
     ***********************************-->
-     <!-- Modal Chat -->
+    <!-- Modal Chat -->
 
-     
-     <div class="chat modal" role="dialog" id="modal-show">
-                    
+
+    <div class="chat modal" role="dialog" id="modal-show">
+
     </div>
-    <!-- Modal Foto -->                
+    <!-- Modal Foto -->
     <div id="modal-img" role="dialog" class="foto-modal modal">
     </div>
 
-    
+
     <script src="asset/plugins/common/common.min.js"></script>
-   
+
     <script src="asset/js/custom.min.js"></script>
     <script src="asset/js/settings.js"></script>
     <script src="asset/js/gleek.js"></script>
     <script src="asset/js/styleSwitcher.js"></script>
 
-   
+
     <script src="asset/plugins/chart.js/Chart.bundle.min.js"></script>
-  
+
     <script src="asset/plugins/circle-progress/circle-progress.min.js"></script>
- 
+
     <script src="asset/plugins/d3v3/index.js"></script>
     <script src="asset/plugins/topojson/topojson.min.js"></script>
-  
-   
+
+
     <!-- <script src="asset/plugins/raphael/raphael.min.js"></script>
     <script src="asset/plugins/morris/morris.min.js"></script> -->
-    
+
     <script src="asset/plugins/moment/moment.min.js"></script>
     <script src="asset/plugins/pg-calendar/js/pignose.calendar.min.js"></script>
-  
+
     <script src="asset/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="asset/plugins/timepicker/bootstrap-timepicker.min.js"></script>
     <script src="asset/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
     <script src="asset/plugins/moment/moment.js"></script>
     <script src="asset/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
-   
+
     <script src="asset/js/plugins-init/form-pickers-init.js"></script>
     <!-- ChartistJS -->
     <!-- <script src="asset/plugins/chartist/js/chartist.min.js"></script>
     <script src="asset/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js"></script> -->
 
-<?php if ($_SESSION['level']=='admin'){ ?>
+    <?php if ($_SESSION['level']=='admin') { ?>
 
-<script>
-
-$(document).ready(function() {
-    $('#loading').bind('ajaxStart', function() {
-        $(this).show();
-    }).bind('ajaxStop', function() {
-        $(this).hide();
-    });
-
-    function load_notification_admin() {
-        $.ajax({
-            type: 'post',
-            url: 'notifikasiAdmin.php',
-            dataType: "json",
-            success: function(data) {
-                $("#notifikasi-admin").html(data.notifikasi_pembayaran);
-
-                $("#count-admin").html(data.count);
-                $("#count-text-admin").html(data.count);
-            }
-
+    <script>
+    $(document).ready(function() {
+        $('#loading').bind('ajaxStart', function() {
+            $(this).show();
+        }).bind('ajaxStop', function() {
+            $(this).hide();
         });
-    }
 
-    $("#seen-admin").on("click", function() {
-        $.ajax({
-            type: 'post',
-            url: 'notifikasiAdmin.php',
-            data: 'view=0',
-            success: function(data) {
-                $("#count-admin").html(data.count);
-            }
+        function load_notification_admin() {
+            $.ajax({
+                type: 'post',
+                url: 'notifikasiAdmin.php',
+                dataType: "json",
+                success: function(data) {
+                    $("#notifikasi-admin").html(data.notifikasi_pembayaran);
+
+                    $("#count-admin").html(data.count);
+                    $("#count-text-admin").html(data.count);
+                }
+
+            });
+        }
+
+        $("#seen-admin").on("click", function() {
+            $.ajax({
+                type: 'post',
+                url: 'notifikasiAdmin.php',
+                data: 'view=0',
+                success: function(data) {
+                    $("#count-admin").html(data.count);
+                }
+            })
         })
-    })
 
-    load_notification_admin();
-    setInterval(function() {
         load_notification_admin();
-    }, 15000);
+        setInterval(function() {
+            load_notification_admin();
+        }, 15000);
 
-})
-</script>
+    })
+    </script>
 
-<?php }else{?>
+    <?php } else  {?>
     <script>
     $(document).ready(function() {
 
 
 
-var id_penjahit = document.getElementById('idPenjahit').value;
+        var id_penjahit = document.getElementById('idPenjahit').value;
 
 
-function load_notification() {
-    $.ajax({
-        type: 'post',
-        url: 'notifikasi.php',
-        dataType: "json",
-        data: 'id_penjahit=' + id_penjahit,
-        success: function(sukses) {
+        function load_notification() {
+            $.ajax({
+                type: 'post',
+                url: 'notifikasi.php',
+                dataType: "json",
+                data: 'id_penjahit=' + id_penjahit,
+                success: function(sukses) {
 
-            $("#notifikasi-pesanan").html(sukses.notifikasi_pesanan);
-            $("#count").html(sukses.count);
-            $("#count-text").html(sukses.count);
+                    $("#notifikasi-pesanan").html(sukses.notifikasi_pesanan);
+                    $("#count").html(sukses.count);
+                    $("#count-text").html(sukses.count);
+
+                }
+
+            });
+        }
+
+        function load_message() {
+            $.ajax({
+                type: 'post',
+                url: 'pesan.php',
+                dataType: "json",
+                data: 'id_penjahit=' + id_penjahit,
+
+                success: function(data) {
+                    $("#notifikasi-pesan").html(data.notifikasi_pesan);
+
+                    $("#count-pesan").html(data.count);
+                    $("#count-pesan-text").html(data.count);
+
+                }
+
+            });
+        }
+
+        $("#seen").on("click", function() {
+            $.ajax({
+                type: 'post',
+                url: 'notifikasi.php',
+                data: 'view=0&id_penjahit=' + id_penjahit,
+                success: function(data) {
+                    $("#count").html(data.count);
+                }
+            })
+        })
+
+        $("#seen-pesan").on("click", function() {
+            $.ajax({
+                type: 'post',
+                url: 'pesan.php',
+                data: 'view=0&id_penjahit=' + id_penjahit,
+                success: function(data) {
+                    $("#count-pesan").html(data.count);
+                }
+            })
+        })
+
+        //pesan
+
+        function modal_dialog(id_pelanggan, nama) {
+
+            var modal_content = '<div class="modal-dialog" id="dialog-pelanggan-' + id_pelanggan + '">';
+            modal_content += '<div class="modal-content">';
+            modal_content += '<div class="modal-header">';
+            modal_content += '<h6 class="modal-title">Kirim pesan kepada ' + nama + '</h6>';
+            modal_content +=
+                '<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>';
+            modal_content += '</div>';
+            modal_content += '<div class="modal-body" >';
+            modal_content += '<div class="container-fluid">';
+            modal_content += '<form>';
+            modal_content += '<div class="col-sm-12" id="isi-pesan-' + id_pelanggan +
+                '" style="overflow:scroll; overflow-x: hidden; height:400px">';
+            modal_content += load_new_message(id_pelanggan);
+            modal_content += '<span id="bottom"></span> </div> ';
+            modal_content += '<div class="col-sm-12 pesan">';
+            modal_content += '<input type="text" hidden id="idPelanggan" value="' + id_pelanggan + '">';
+            modal_content +=
+                '<textarea maxlength="500" placeholder="Tulis pesan.." class="form-control mt-3" id="pesan" name="pesan"></textarea>';
+            modal_content +=
+                '<button type="button" class="btn kirim mt-3" style="background-color:  #b057f4;color:#fff;">Kirim</button>';
+            modal_content += '</div>';
+            modal_content += '</form>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+            modal_content += '</div>';
+
+            $('.chat').html(modal_content);
 
         }
 
-    });
-}
 
-function load_message() {
-    $.ajax({
-        type: 'post',
-        url: 'pesan.php',
-        dataType: "json",
-        data: 'id_penjahit=' + id_penjahit,
+        function send_message() {
+            var id_pelanggan = $('#idPelanggan').val();
+            var pesan = $("#pesan").val();
 
-        success: function(data) {
-            $("#notifikasi-pesan").html(data.notifikasi_pesan);
+            if (pesan == "") {
+                alert("Isi pesan!");
+            } else {
+                $.ajax({
+                    type: "post",
+                    url: "kirimPesan.php",
+                    data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit + "&pesan=" +
+                        pesan + "&pengirim=penjahit",
+                    success: function(data) {
 
-            $("#count-pesan").html(data.count);
-            $("#count-pesan-text").html(data.count);
-
-        }
-
-    });
-}
-
-$("#seen").on("click", function() {
-    $.ajax({
-        type: 'post',
-        url: 'notifikasi.php',
-        data: 'view=0&id_penjahit=' + id_penjahit,
-        success: function(data) {
-            $("#count").html(data.count);
-        }
-    })
-})
-
-$("#seen-pesan").on("click", function() {
-    $.ajax({
-        type: 'post',
-        url: 'pesan.php',
-        data: 'view=0&id_penjahit=' + id_penjahit,
-        success: function(data) {
-            $("#count-pesan").html(data.count);
-        }
-    })
-})
-
-//pesan
-
-function modal_dialog(id_pelanggan, nama) {
-
-    var modal_content = '<div class="modal-dialog" id="dialog-pelanggan-' + id_pelanggan + '">';
-    modal_content += '<div class="modal-content">';
-    modal_content += '<div class="modal-header">';
-    modal_content += '<h6 class="modal-title">Kirim pesan kepada ' + nama + '</h6>';
-    modal_content += '<button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>';
-    modal_content += '</div>';
-    modal_content += '<div class="modal-body" >';
-    modal_content += '<div class="container-fluid">';
-    modal_content += '<form>';
-    modal_content += '<div class="col-sm-12" id="isi-pesan-' + id_pelanggan + '" style="overflow:scroll; overflow-x: hidden; height:400px">';
-    modal_content += load_new_message(id_pelanggan);
-    modal_content += '<span id="bottom"></span> </div> ';
-    modal_content += '<div class="col-sm-12 pesan">';
-    modal_content += '<input type="text" hidden id="idPelanggan" value="' + id_pelanggan + '">';
-    modal_content += '<textarea maxlength="500" placeholder="Tulis pesan.." class="form-control mt-3" id="pesan" name="pesan"></textarea>';
-    modal_content += '<button type="button" class="btn kirim mt-3" style="background-color:  #b057f4;color:#fff;">Kirim</button>';
-    modal_content += '</div>';
-    modal_content += '</form>';
-    modal_content += '</div>';
-    modal_content += '</div>';
-    modal_content += '</div>';
-    modal_content += '</div>';
-
-    $('.chat').html(modal_content);
-
-}
-
-
-function send_message() {
-    var id_pelanggan = $('#idPelanggan').val();
-    var pesan = $("#pesan").val();
-
-    if (pesan == "") {
-        alert("Isi pesan!");
-    } else {
-        $.ajax({
-            type: "post",
-            url: "kirimPesan.php",
-            data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit + "&pesan=" + pesan + "&pengirim=penjahit",
-            success: function(data) {
-
-                $('#pesan').val('');
-                $('#isi-pesan-' + id_pelanggan).html(data);
-                scrollToBottom(id_pelanggan)
+                        $('#pesan').val('');
+                        $('#isi-pesan-' + id_pelanggan).html(data);
+                        scrollToBottom(id_pelanggan)
+                    }
+                });
             }
+        }
+
+        function load_new_message(id_pelanggan) {
+
+            $.ajax({
+                type: "post",
+                url: "kirimPesan.php",
+                data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit +
+                    "&pengirim=penjahit",
+
+                success: function(data) {
+                    $('#isi-pesan-' + id_pelanggan).html(data);
+
+                },
+
+            });
+        }
+
+        $(document).on('click', '.pesan_pelanggan', function() {
+            var id_pelanggan = $(this).data('id');
+            var nama = $(this).data('nama');
+
+            modal_dialog(id_pelanggan, nama);
+            setTimeout(function() {
+                scrollToBottom(id_pelanggan);
+            }, 10);
+            // $('#dialog-pelanggan-'+id_pelanggan).dialog({
+            // autoOpen:false,
+            // width:400
+            // });
+
+            $('#dialog-pelanggan-' + id_pelanggan).dialog('open');
+            $('#modal-show').addClass("fade");
+
         });
-    }
-}
-
-function load_new_message(id_pelanggan) {
-
-    $.ajax({
-        type: "post",
-        url: "kirimPesan.php",
-        data: "id_pelanggan=" + id_pelanggan + "&id_penjahit=" + id_penjahit + "&pengirim=penjahit",
-
-        success: function(data) {
-            $('#isi-pesan-' + id_pelanggan).html(data);
-
-        },
-
-    });
-}
-
-$(document).on('click', '.pesan_pelanggan', function() {
-    var id_pelanggan = $(this).data('id');
-    var nama = $(this).data('nama');
-
-    modal_dialog(id_pelanggan, nama);
-    setTimeout(function() { scrollToBottom(id_pelanggan); }, 10);
-    // $('#dialog-pelanggan-'+id_pelanggan).dialog({
-    // autoOpen:false,
-    // width:400
-    // });
-
-    $('#dialog-pelanggan-' + id_pelanggan).dialog('open');
-    $('#modal-show').addClass("fade");
-
-});
 
 
-function scrollToBottom(id) {
-    var chat = document.getElementById('isi-pesan-' + id);
-    if (chat != undefined) {
-        chat.style.height = 400;
-        chat.scrollTop = chat.scrollHeight;
+        function scrollToBottom(id) {
+            var chat = document.getElementById('isi-pesan-' + id);
+            if (chat != undefined) {
+                chat.style.height = 400;
+                chat.scrollTop = chat.scrollHeight;
 
-    }
-}
+            }
+        }
 
-function update_message() {
-    $('.chat-history').each(function() {
-        var id_pelanggan = $(this).data('id');
-        load_new_message(id_pelanggan);
-    });
-}
-
-
-$(document).on('click', '.close', function() {
-    $('.modal-dialog').remove();
-    $('#modal-show').removeClass("fade");
-    $('#modal-img').modal('hide');
-    modal = document.getElementById("modal-img");
-    modal.style.display = "none";
-});
+        function update_message() {
+            $('.chat-history').each(function() {
+                var id_pelanggan = $(this).data('id');
+                load_new_message(id_pelanggan);
+            });
+        }
 
 
-$(document).on('click', '.kirim', function() {
-    send_message();
+        $(document).on('click', '.close', function() {
+            $('.modal-dialog').remove();
+            $('#modal-show').removeClass("fade");
+            $('#modal-img').modal('hide');
+            modal = document.getElementById("modal-img");
+            modal.style.display = "none";
+        });
 
-});
+
+        $(document).on('click', '.kirim', function() {
+            send_message();
+
+        });
 
 
 
 
-load_message();
-load_notification();
+        load_message();
+        load_notification();
 
-setInterval(function() {
-    load_notification();
-    load_message();
-    update_message();
-}, 10000);
+        setInterval(function() {
+            load_notification();
+            load_message();
+            update_message();
+        }, 10000);
 
 
 
-})</script>
-    <?php }?>
+    })
+    </script>
+    <?php } ?>
 </body>
+
 
 </html>
